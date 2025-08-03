@@ -8,7 +8,7 @@ import { AIShoppingAssistant, AnimatedBackground, FloatingDecoration, ToastNotif
 import { NeuralNetworkBackground } from "@/components/product";
 import { CartItems, OrderSummary, PaymentSuccessModal, ProgressSteps } from "@/components/cart";
 
-export default function CartPage() {
+const CartPage = () => {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
   const handleCloseSuccessModal = () => {
@@ -70,3 +70,5 @@ export default function CartPage() {
     </div>
   );
 }
+
+export default CartPage;
