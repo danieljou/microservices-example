@@ -1,0 +1,1038 @@
+<!DOCTYPE html><html lang="fr" class="h-full"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 LUXE Store - La Boutique du Futur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f0ff',
+                            100: '#e5e5ff',
+                            200: '#d1d1ff',
+                            300: '#a8a8ff',
+                            400: '#7a7aff',
+                            500: '#5D5CDE',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81'
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'slide-down': 'slideDown 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite alternate',
+                        'bounce-soft': 'bounceSoft 2s ease-in-out infinite',
+                        'gradient': 'gradient 15s ease infinite',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                        'zoom-in': 'zoomIn 0.6s ease-out',
+                        'rotate-slow': 'rotateSlow 20s linear infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(50px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-50px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.8)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        zoomIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.5)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        pulseGlow: {
+                            '0%': { boxShadow: '0 0 20px rgba(93, 92, 222, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(93, 92, 222, 0.6)' }
+                        },
+                        bounceSoft: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        gradient: {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                            '100%': { backgroundPosition: '0% 50%' }
+                        },
+                        rotateSlow: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' }
+                        }
+                    },
+                    boxShadow: {
+                        'glow': '0 0 25px rgba(93, 92, 222, 0.3)',
+                        'glow-lg': '0 0 40px rgba(93, 92, 222, 0.4)',
+                        'card': '0 10px 30px rgba(0, 0, 0, 0.1)',
+                        'card-hover': '0 15px 40px rgba(0, 0, 0, 0.15)',
+                        'inner-glow': 'inset 0 0 20px rgba(93, 92, 222, 0.1)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-card {
+            background: rgba(17, 24, 39, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        .interactive-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .interactive-btn:hover::before {
+            left: 100%;
+        }
+
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(2n) {
+            animation-delay: -2s;
+        }
+
+        .floating-element:nth-child(3n) {
+            animation-delay: -4s;
+        }
+
+        .feature-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .toast {
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .parallax-bg {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+        }
+
+        .dark .parallax-bg {
+            opacity: 0.02;
+        }
+
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+            80%, 100% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, #5D5CDE, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #5D5CDE, #764ba2);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased bg-gradient-to-br from-gray-50 via-white to-primary-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800 min-h-screen relative">
+    <!-- Animated Background -->
+    <div class="parallax-bg"></div>
+    
+    <!-- Floating Decoration Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="floating-element absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-primary-200 to-primary-300 dark:from-primary-800 dark:to-primary-900 rounded-full opacity-20 blur-xl"></div>
+        <div class="floating-element absolute top-40 right-20 w-48 h-48 bg-gradient-to-br from-purple-200 to-pink-300 dark:from-purple-800 dark:to-pink-900 rounded-full opacity-15 blur-2xl"></div>
+        <div class="floating-element absolute bottom-32 left-1/4 w-24 h-24 bg-gradient-to-br from-blue-200 to-cyan-300 dark:from-blue-800 dark:to-cyan-900 rounded-full opacity-25 blur-xl"></div>
+        <div class="floating-element absolute top-1/2 right-1/4 w-16 h-16 bg-gradient-to-br from-yellow-200 to-orange-300 dark:from-yellow-800 dark:to-orange-900 rounded-full opacity-30 blur-lg"></div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="fixed top-20 right-6 z-50 space-y-3"></div>
+
+    <!-- AI Shopping Assistant -->
+    <div id="aiAssistant" class="fixed bottom-8 right-8 z-40">
+        <button id="aiToggle" class="w-16 h-16 bg-gradient-to-r from-primary-500 to-purple-600 rounded-full shadow-glow hover:shadow-glow-lg flex items-center justify-center text-white transition-all duration-300 hover:scale-110 animate-bounce-soft">
+            <i class="fas fa-robot text-2xl"></i>
+            <div class="absolute inset-0 rounded-full bg-primary-500 pulse-ring"></div>
+        </button>
+        <div id="aiChat" class="hidden absolute bottom-20 right-0 w-96 max-w-[90vw] bg-white dark:bg-gray-900 rounded-3xl shadow-card border border-gray-200 dark:border-gray-700 overflow-hidden animate-scale-in">
+            <div class="bg-gradient-to-r from-primary-500 to-purple-600 p-6 text-white">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-robot text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">LUXE Assistant</h3>
+                            <p class="text-sm opacity-90">Votre guide shopping</p>
+                        </div>
+                    </div>
+                    <button id="aiClose" class="text-white/80 hover:text-white transition-colors">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="aiMessages" class="h-80 overflow-y-auto p-6 space-y-4">
+                <div class="ai-message flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-gradient-to-r from-primary-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-4 max-w-xs animate-fade-in">
+                        <p class="text-sm">👋 Bienvenue chez LUXE Store ! Je suis votre assistant personnel. Comment puis-je vous aider aujourd'hui ?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex space-x-3">
+                    <input type="text" id="aiInput" placeholder="Posez votre question..." class="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all text-base">
+                    <button id="aiSend" class="px-6 py-3 bg-gradient-to-r from-primary-500 to-purple-600 text-white rounded-2xl hover:from-primary-600 hover:to-purple-700 transition-all shadow-glow hover:scale-105">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="glass-card sticky top-0 z-30 shadow-card animate-slide-down">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <div class="flex items-center group">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center shadow-glow group-hover:shadow-glow-lg transition-all duration-300 group-hover:scale-110">
+                            <i class="fas fa-gem text-white text-xl animate-float"></i>
+                        </div>
+                        <h1 class="ml-4 text-3xl font-black gradient-text">
+                            LUXE Store
+                        </h1>
+                    </div>
+                </div>
+                
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-all duration-300 hover:scale-105 font-medium">Accueil</a>
+                    <a href="./product.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-all duration-300 hover:scale-105 font-medium">Produits</a>
+                    <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-all duration-300 hover:scale-105 font-medium">À propos</a>
+                    <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-all duration-300 hover:scale-105 font-medium">Contact</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="interactive-btn p-3 text-gray-600 dark:text-gray-400 hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-2xl transition-all duration-300 hover:scale-110">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="interactive-btn relative p-3 text-gray-600 dark:text-gray-400 hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-2xl transition-all duration-300 hover:scale-110">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-r from-primary-500 to-primary-600 text-white text-xs rounded-full flex items-center justify-center animate-bounce-soft shadow-glow">0</span>
+                    </button>
+                    <button class="interactive-btn px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-2xl hover:from-primary-600 hover:to-primary-700 transition-all duration-300 hover:scale-105 shadow-glow font-semibold">
+                        Connexion
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="text-center lg:text-left animate-slide-in-left">
+                    <div class="mb-8">
+                        <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-primary-100 to-primary-200 dark:from-primary-900/30 dark:to-primary-800/30 text-primary-700 dark:text-primary-300 shadow-inner-glow mb-6 animate-bounce-soft">
+                            <i class="fas fa-sparkles mr-2"></i>
+                            Nouvelle collection disponible
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-6 animate-fade-in">
+                        <span class="gradient-text">La Boutique</span>
+                        <br>
+                        <span class="text-gray-900 dark:text-white">du Futur</span>
+                    </h1>
+                    
+                    <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed animate-slide-up" style="animation-delay: 0.2s">
+                        Découvrez une expérience shopping révolutionnaire avec notre intelligence artificielle, réalité augmentée et produits premium sélectionnés avec soin.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up" style="animation-delay: 0.4s">
+                        <button onclick="scrollToSection('products')" class="interactive-btn px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-2xl hover:from-primary-600 hover:to-primary-700 transition-all duration-300 hover:scale-105 shadow-glow hover:shadow-glow-lg font-bold text-lg">
+                            <i class="fas fa-rocket mr-3"></i>
+                            Explorer maintenant
+                        </button>
+                        <button onclick="openAiChat()" class="interactive-btn px-8 py-4 border-2 border-primary-500 text-primary-500 rounded-2xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-300 hover:scale-105 font-bold text-lg">
+                            <i class="fas fa-robot mr-3"></i>
+                            Assistant IA
+                        </button>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-6 mt-12 animate-fade-in" style="animation-delay: 0.6s">
+                        <div class="text-center">
+                            <div class="text-3xl font-black text-primary-600 dark:text-primary-400">10K+</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Clients satisfaits</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-black text-primary-600 dark:text-primary-400">500+</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Produits premium</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-black text-primary-600 dark:text-primary-400">24h</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Livraison express</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Visual -->
+                <div class="relative animate-slide-in-right">
+                    <div class="relative w-full h-96 lg:h-[500px]">
+                        <!-- Main Product Image -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary-500 to-purple-600 rounded-3xl shadow-card-hover animate-float">
+                            <div class="w-full h-full flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-gem text-8xl mb-6 animate-rotate-slow"></i>
+                                    <h3 class="text-2xl font-bold mb-4">Produits Premium</h3>
+                                    <p class="text-lg opacity-90">Innovation &amp; Qualité</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl shadow-glow animate-bounce-soft flex items-center justify-center text-white">
+                            <i class="fas fa-star text-2xl"></i>
+                        </div>
+                        
+                        <div class="absolute -top-4 -right-8 w-20 h-20 bg-gradient-to-br from-green-400 to-blue-500 rounded-full shadow-glow animate-float flex items-center justify-center text-white" style="animation-delay: -1s">
+                            <i class="fas fa-check text-xl"></i>
+                        </div>
+                        
+                        <div class="absolute -bottom-4 -left-8 w-28 h-28 bg-gradient-to-br from-pink-400 to-red-500 rounded-3xl shadow-glow animate-pulse-glow flex items-center justify-center text-white">
+                            <i class="fas fa-heart text-2xl"></i>
+                        </div>
+                        
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-2xl shadow-glow animate-bounce-soft flex items-center justify-center text-white" style="animation-delay: -0.5s">
+                            <i class="fas fa-shopping-bag text-3xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-soft">
+            <div class="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-gray-400 dark:bg-gray-600 rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-black gradient-text mb-6">
+                    Pourquoi choisir LUXE Store ?
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    Une expérience shopping révolutionnaire qui combine technologie de pointe et service premium
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card glass-card rounded-3xl p-8 shadow-card hover:shadow-card-hover border border-gray-200 dark:border-gray-700 animate-slide-up" style="animation-delay: 0.1s">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-glow">
+                        <i class="fas fa-robot text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Assistant IA</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Notre intelligence artificielle vous guide personnellement dans vos achats et répond à toutes vos questions en temps réel.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card glass-card rounded-3xl p-8 shadow-card hover:shadow-card-hover border border-gray-200 dark:border-gray-700 animate-slide-up" style="animation-delay: 0.2s">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-glow">
+                        <i class="fas fa-cube text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Réalité Augmentée</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Visualisez nos produits dans votre espace avant l'achat grâce à notre technologie AR avancée.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card glass-card rounded-3xl p-8 shadow-card hover:shadow-card-hover border border-gray-200 dark:border-gray-700 animate-slide-up" style="animation-delay: 0.3s">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6 shadow-glow">
+                        <i class="fas fa-shipping-fast text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Livraison Express</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Recevez vos commandes en 24h partout en France avec notre service de livraison premium.
+                    </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card glass-card rounded-3xl p-8 shadow-card hover:shadow-card-hover border border-gray-200 dark:border-gray-700 animate-slide-up" style="animation-delay: 0.4s">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 shadow-glow">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Sécurité Maximum</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Paiements 100% sécurisés avec chiffrement SSL et protection avancée de vos données.
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card glass-card rounded-3xl p-8 shadow-card hover:shadow-card-hover border border-gray-200 dark:border-gray-700 animate-slide-up" style="animation-delay: 0.5s">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 shadow-glow">
+                        <i class="fas fa-gem text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Qualité Premium</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Tous nos produits sont soigneusement sélectionnés pour leur qualité exceptionnelle et leur innovation.
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card glass-card rounded-3xl p-8 shadow-card hover:shadow-card-hover border border-gray-200 dark:border-gray-700 animate-slide-up" style="animation-delay: 0.6s">
+                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-glow">
+                        <i class="fas fa-headset text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Support 24/7</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Notre équipe d'experts est disponible 24h/24 et 7j/7 pour vous accompagner et vous conseiller.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Preview Section -->
+    <section id="products" class="py-20 bg-gradient-to-br from-gray-50 to-primary-50 dark:from-gray-900 dark:to-primary-950 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-black gradient-text mb-6">
+                    Nos Produits Phares
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    Découvrez notre sélection de produits premium, choisis pour leur innovation et leur qualité exceptionnelle
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Product 1 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:scale-105 animate-zoom-in" style="animation-delay: 0.1s">
+                    <div class="relative h-64 bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-white text-6xl animate-float"></i>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">-7%</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <button class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white hover:text-red-500 transition-colors">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">iPhone 15 Pro Max</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Le smartphone le plus avancé d'Apple</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-black text-gray-900 dark:text-white">1299€</span>
+                                <span class="text-lg text-gray-500 dark:text-gray-400 line-through ml-2">1399€</span>
+                            </div>
+                            <button class="interactive-btn px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all shadow-glow">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:scale-105 animate-zoom-in" style="animation-delay: 0.2s">
+                    <div class="relative h-64 bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-laptop text-white text-6xl animate-float" style="animation-delay: -1s"></i>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Nouveau</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <button class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white hover:text-red-500 transition-colors">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">MacBook Pro M3 Max</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Performance exceptionnelle pour les créateurs</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-black text-gray-900 dark:text-white">2499€</span>
+                            </div>
+                            <button class="interactive-btn px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all shadow-glow">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:scale-105 animate-zoom-in" style="animation-delay: 0.3s">
+                    <div class="relative h-64 bg-gradient-to-br from-pink-500 to-red-600 flex items-center justify-center">
+                        <i class="fas fa-headphones text-white text-6xl animate-float" style="animation-delay: -2s"></i>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">Gaming</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <button class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white hover:text-red-500 transition-colors">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Casque Gaming Pro X</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Son surround 7.1 et microphone Blue VO!CE</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-black text-gray-900 dark:text-white">299€</span>
+                            </div>
+                            <button class="interactive-btn px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all shadow-glow">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center animate-fade-in">
+                <button onclick="window.location.href='product.html'" class="interactive-btn px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-2xl hover:from-primary-600 hover:to-primary-700 transition-all duration-300 hover:scale-105 shadow-glow font-bold text-lg">
+                    <i class="fas fa-arrow-right mr-3"></i>
+                    Voir tous les produits
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-black gradient-text mb-6">
+                    Ce que disent nos clients
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    Plus de 10 000 clients satisfaits nous font confiance pour leurs achats premium
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card glass-card rounded-3xl p-8 shadow-card border border-gray-200 dark:border-gray-700 animate-slide-up" style="animation-delay: 0.1s">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            M
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Marie Dubois</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Designer</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-4">
+                        ★★★★★
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        "L'assistant IA de LUXE Store m'a aidée à trouver exactement ce que je cherchais. Service exceptionnel et livraison ultra-rapide !"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card glass-card rounded-3xl p-8 shadow-card border border-gray-200 dark:border-gray-700 animate-slide-up" style="animation-delay: 0.2s">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            J
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Jean Martin</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Développeur</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-4">
+                        ★★★★★
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        "La technologie AR pour visualiser les produits est révolutionnaire. J'ai pu voir mon MacBook dans mon bureau avant l'achat !"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card glass-card rounded-3xl p-8 shadow-card border border-gray-200 dark:border-gray-700 animate-slide-up" style="animation-delay: 0.3s">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-red-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            S
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Sophie Laurent</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Étudiante</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-4">
+                        ★★★★★
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        "Qualité exceptionnelle et interface magnifique. Le support client 24/7 est un vrai plus. Je recommande vivement !"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-primary-500 to-purple-600 relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6">
+                    Restez connecté à l'innovation
+                </h2>
+                <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                    Soyez les premiers informés de nos nouvelles collections, offres exclusives et innovations technologiques
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto mb-8">
+                    <input type="email" placeholder="Votre adresse email" class="flex-1 px-6 py-4 rounded-2xl border-0 bg-white/90 text-gray-900 placeholder-gray-500 focus:ring-4 focus:ring-white/30 focus:bg-white transition-all text-base font-medium">
+                    <button class="interactive-btn px-8 py-4 bg-white text-primary-600 rounded-2xl hover:bg-gray-100 transition-all duration-300 hover:scale-105 font-bold shadow-glow">
+                        <i class="fas fa-envelope mr-2"></i>
+                        S'abonner
+                    </button>
+                </div>
+                
+                <p class="text-sm text-white/70">
+                    🔒 Vos données sont sécurisées. Pas de spam, promis !
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="animate-slide-in-left">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center shadow-glow mr-3">
+                            <i class="fas fa-gem text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-black gradient-text">LUXE Store</h3>
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        La boutique du futur qui révolutionne votre expérience shopping avec l'intelligence artificielle et la réalité augmentée.
+                    </p>
+                    <div class="flex space-x-4">
+                        <button class="w-10 h-10 bg-gray-800 hover:bg-primary-500 rounded-lg flex items-center justify-center transition-all hover:scale-110">
+                            <i class="fab fa-facebook-f"></i>
+                        </button>
+                        <button class="w-10 h-10 bg-gray-800 hover:bg-primary-500 rounded-lg flex items-center justify-center transition-all hover:scale-110">
+                            <i class="fab fa-twitter"></i>
+                        </button>
+                        <button class="w-10 h-10 bg-gray-800 hover:bg-primary-500 rounded-lg flex items-center justify-center transition-all hover:scale-110">
+                            <i class="fab fa-instagram"></i>
+                        </button>
+                        <button class="w-10 h-10 bg-gray-800 hover:bg-primary-500 rounded-lg flex items-center justify-center transition-all hover:scale-110">
+                            <i class="fab fa-linkedin-in"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="animate-fade-in" style="animation-delay: 0.1s">
+                    <h4 class="text-lg font-bold mb-6">Liens rapides</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">À propos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Produits</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Collections</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Nouveautés</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Promotions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div class="animate-fade-in" style="animation-delay: 0.2s">
+                    <h4 class="text-lg font-bold mb-6">Support</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Centre d'aide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Livraison</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Retours</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Garantie</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div class="animate-slide-in-right">
+                    <h4 class="text-lg font-bold mb-6">Contact</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-primary-500 mr-3"></i>
+                            <span class="text-gray-400">123 Rue de l'Innovation, 75001 Paris</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-primary-500 mr-3"></i>
+                            <span class="text-gray-400">+33 1 23 45 67 89</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-primary-500 mr-3"></i>
+                            <span class="text-gray-400">contact@luxestore.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-primary-500 mr-3"></i>
+                            <span class="text-gray-400">Support 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    © 2024 LUXE Store. Tous droits réservés.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Mentions légales</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Confidentialité</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">CGV</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+                showToast(`Navigation vers ${sectionId}`, 'info');
+            }
+        }
+
+        // AI Assistant functionality
+        const aiToggle = document.getElementById('aiToggle');
+        const aiChat = document.getElementById('aiChat');
+        const aiClose = document.getElementById('aiClose');
+        const aiInput = document.getElementById('aiInput');
+        const aiSend = document.getElementById('aiSend');
+        const aiMessages = document.getElementById('aiMessages');
+        
+        let isAiOpen = false;
+
+        function openAiChat() {
+            isAiOpen = true;
+            aiChat.classList.remove('hidden');
+            showToast('Assistant IA activé! 🤖', 'info');
+        }
+        
+        aiToggle.addEventListener('click', openAiChat);
+        
+        aiClose.addEventListener('click', () => {
+            isAiOpen = false;
+            aiChat.classList.add('hidden');
+        });
+        
+        aiSend.addEventListener('click', sendAiMessage);
+        aiInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendAiMessage();
+        });
+        
+        function sendAiMessage() {
+            const message = aiInput.value.trim();
+            if (!message) return;
+            
+            addAiMessage(message, 'user');
+            aiInput.value = '';
+            
+            setTimeout(() => {
+                const response = generateAiResponse(message);
+                addAiMessage(response, 'ai');
+            }, 1000 + Math.random() * 1500);
+        }
+        
+        function addAiMessage(message, sender) {
+            const messageEl = document.createElement('div');
+            messageEl.className = `${sender}-message flex items-start space-x-3 animate-fade-in`;
+            
+            if (sender === 'user') {
+                messageEl.innerHTML = `
+                    <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-sm">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="bg-primary-100 dark:bg-primary-900/30 rounded-2xl p-4 max-w-xs">
+                        <p class="text-sm">${message}</p>
+                    </div>
+                `;
+            } else {
+                messageEl.innerHTML = `
+                    <div class="w-8 h-8 bg-gradient-to-r from-primary-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-4 max-w-xs">
+                        <p class="text-sm">${message}</p>
+                    </div>
+                `;
+            }
+            
+            aiMessages.appendChild(messageEl);
+            aiMessages.scrollTop = aiMessages.scrollHeight;
+        }
+        
+        function generateAiResponse(message) {
+            const responses = {
+                'produits': '🛍️ Nous avons plus de 500 produits premium ! iPhone, MacBook, casques gaming... Que recherchez-vous ?',
+                'livraison': '🚚 Livraison express en 24h partout en France. Gratuite dès 50€ d\'achat !',
+                'prix': '💰 Nos prix sont compétitifs avec des promotions régulières. Consultez nos offres actuelles !',
+                'aide': '🆘 Je suis votre assistant personnel ! Je peux vous aider avec vos achats, questions ou recommandations.',
+                'qualité': '⭐ Tous nos produits sont sélectionnés pour leur qualité exceptionnelle et garantis 2 ans.',
+                'retour': '↩️ Retours gratuits sous 30 jours. Satisfaction garantie ou remboursé !',
+                'default': '✨ Merci de votre question ! Notre équipe d\'experts est là pour vous aider. Que puis-je faire pour vous ?'
+            };
+            
+            const lowerMessage = message.toLowerCase();
+            
+            for (const [key, response] of Object.entries(responses)) {
+                if (key !== 'default' && lowerMessage.includes(key)) {
+                    return response;
+                }
+            }
+            
+            return responses.default;
+        }
+
+        // Toast notifications
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            const icons = {
+                success: 'fas fa-check-circle text-green-500',
+                error: 'fas fa-exclamation-circle text-red-500',
+                warning: 'fas fa-exclamation-triangle text-yellow-500',
+                info: 'fas fa-info-circle text-blue-500'
+            };
+            
+            const colors = {
+                success: 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800',
+                error: 'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800',
+                warning: 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800',
+                info: 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800'
+            };
+            
+            toast.className = `toast glass-card rounded-2xl p-4 shadow-card border ${colors[type]} flex items-center space-x-3 min-w-72`;
+            toast.innerHTML = `
+                <i class="${icons[type]}"></i>
+                <span class="font-medium text-gray-800 dark:text-gray-200">${message}</span>
+                <button onclick="this.parentElement.remove()" class="ml-auto text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            document.getElementById('toastContainer').appendChild(toast);
+            
+            setTimeout(() => toast.classList.add('show'), 100);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Newsletter subscription
+        document.querySelector('button[class*="bg-white"]').addEventListener('click', function() {
+            const email = this.previousElementSibling.value;
+            if (email && email.includes('@')) {
+                showToast('Merci pour votre inscription ! 📧', 'success');
+                this.previousElementSibling.value = '';
+            } else {
+                showToast('Veuillez entrer un email valide', 'warning');
+            }
+        });
+
+        // Add to cart functionality
+        document.querySelectorAll('button[class*="from-primary-500"]').forEach(btn => {
+            if (btn.querySelector('.fa-plus')) {
+                btn.addEventListener('click', function() {
+                    this.innerHTML = '<i class="fas fa-check"></i>';
+                    this.classList.add('bg-green-500', 'from-green-500', 'to-green-600');
+                    showToast('Produit ajouté au panier! 🛒', 'success');
+                    
+                    // Update cart counter
+                    const cartBadge = document.querySelector('.animate-bounce-soft span');
+                    const currentCount = parseInt(cartBadge.textContent);
+                    cartBadge.textContent = currentCount + 1;
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-plus"></i>';
+                        this.classList.remove('bg-green-500', 'from-green-500', 'to-green-600');
+                    }, 2000);
+                });
+            }
+        });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.parallax-bg');
+            const speed = scrolled * 0.5;
+            parallax.style.transform = `translateY(${speed}px)`;
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observe all animated elements
+            document.querySelectorAll('[class*="animate-"]').forEach(el => {
+                observer.observe(el);
+            });
+
+            showToast('🌟 Bienvenue chez LUXE Store ! Découvrez le futur du shopping.', 'success');
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isAiOpen) {
+                aiChat.classList.add('hidden');
+                isAiOpen = false;
+            }
+        });
+
+        // Global functions
+        window.scrollToSection = scrollToSection;
+        window.openAiChat = openAiChat;
+    </script>
+
+
+</body></html>

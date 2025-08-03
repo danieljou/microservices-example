@@ -1,0 +1,115 @@
+
+services:
+  db_user:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: users_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - micro_net
+
+  db_order:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: orders_db
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - micro_net
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - micro_net
+
+  user-service:
+    build: ./user_service
+    container_name: user-service
+    hostname: user-service
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./user_service:/app
+    depends_on:
+      - db_user
+    networks:
+      - micro_net
+
+  product_service:
+    build: ./product_service
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./product_service:/app
+      - /app/node_modules
+    command: ["npm", "run", "dev"]
+    depends_on:
+      - mongo
+    networks:
+      - micro_net
+
+  order_service:
+    build: ./order_service
+    ports:
+      - "6060:6000"
+    volumes:
+      - ./order_service:/app
+    depends_on:
+      db_order:
+        condition: service_healthy
+    networks:
+      - micro_net
+    command: ["python", "app.py"]
+
+  gateway:
+    build: ./gateway
+    ports:
+      - "9000:9000"
+    depends_on:
+      - user-service
+      - product_service
+      - order_service
+    networks:
+      - micro_net
+  
+  # client-app:
+  #   build: ./client-app
+  #   container_name: client-app
+  #   ports:
+  #     - "3005:3000"
+  #   volumes:
+  #     - ./client-app/:/app
+  #     - /app/node_modules
+  #   environment:
+  #     NODE_ENV: development
+  #     TURBOPACK_WATCHING: "true"
+  #     CHOKIDAR_USEPOLLING: "true"
+  #   command: ["npm", "run", "dev:docker"]
+
+networks:
+  micro_net:
+    driver: bridge
+
+
+volumes:
+  postgres_data:
+  mysql_data:
+  mongo_data:

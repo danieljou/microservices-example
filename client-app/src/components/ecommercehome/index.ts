@@ -1,0 +1,11 @@
+export { default as AIShoppingAssistant } from './AIShoppingAssistant';
+export { default as AnimatedBackground } from './AnimatedBackground';
+export { default as FeaturesSection } from './FeaturesSection';
+export { default as FloatingDecoration } from './FloatingDecoration';
+export { default as Footer } from './Footer';
+export { default as HeroSection } from './HeroSection';
+export { default as NavigationHeader } from './NavigationHeader';
+export { default as NewsletterCTA } from './NewsletterCTA';
+export { default as ProductsPreviewSection } from './ProductsPreviewSection';
+export { default as TestimonialsSection } from './TestimonialsSection';
+export { default as ToastNotifications } from './ToastNotifications'; 

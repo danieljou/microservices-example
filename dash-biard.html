@@ -1,0 +1,1457 @@
+<!DOCTYPE html><html lang="fr" class="h-full"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 LUXE Admin - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f0ff',
+                            100: '#e5e5ff',
+                            200: '#d1d1ff',
+                            300: '#a8a8ff',
+                            400: '#7a7aff',
+                            500: '#5D5CDE',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81'
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'slide-in-left': 'slideInLeft 0.6s ease-out',
+                        'slide-in-right': 'slideInRight 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.4s ease-out',
+                        'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite alternate',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'float': 'float 3s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-8px)' }
+                        },
+                        pulseGlow: {
+                            '0%': { boxShadow: '0 0 20px rgba(93, 92, 222, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(93, 92, 222, 0.6)' }
+                        },
+                        shimmer: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(100%)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    },
+                    boxShadow: {
+                        'glow': '0 0 25px rgba(93, 92, 222, 0.3)',
+                        'glow-lg': '0 0 40px rgba(93, 92, 222, 0.4)',
+                        'card': '0 8px 25px rgba(0, 0, 0, 0.1)',
+                        'card-hover': '0 12px 35px rgba(0, 0, 0, 0.15)',
+                        'inner': 'inset 0 2px 4px rgba(0, 0, 0, 0.1)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-card {
+            background: rgba(17, 24, 39, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .interactive-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .interactive-btn:hover::before {
+            left: 100%;
+        }
+
+        .data-table {
+            overflow-x: auto;
+        }
+
+        .data-table table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .data-table th,
+        .data-table td {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .dark .data-table th,
+        .dark .data-table td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background-color: rgba(34, 197, 94, 0.1);
+            color: rgb(34, 197, 94);
+        }
+
+        .status-inactive {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: rgb(239, 68, 68);
+        }
+
+        .status-pending {
+            background-color: rgba(249, 115, 22, 0.1);
+            color: rgb(249, 115, 22);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(2n) {
+            animation-delay: -2s;
+        }
+
+        .floating-element:nth-child(3n) {
+            animation-delay: -4s;
+        }
+
+        .parallax-bg {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.02;
+        }
+
+        .dark .parallax-bg {
+            opacity: 0.01;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #5D5CDE, #764ba2);
+            border-radius: 4px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+
+        .toast {
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased bg-gradient-to-br from-gray-50 via-white to-primary-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800 min-h-screen">
+    <!-- Animated Background -->
+    <div class="parallax-bg"></div>
+    
+    <!-- Floating Decoration Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="floating-element absolute top-20 left-10 w-24 h-24 bg-gradient-to-br from-primary-200 to-primary-300 dark:from-primary-800 dark:to-primary-900 rounded-full opacity-20 blur-xl"></div>
+        <div class="floating-element absolute top-40 right-20 w-32 h-32 bg-gradient-to-br from-purple-200 to-pink-300 dark:from-purple-800 dark:to-pink-900 rounded-full opacity-15 blur-2xl"></div>
+        <div class="floating-element absolute bottom-32 left-1/4 w-20 h-20 bg-gradient-to-br from-blue-200 to-cyan-300 dark:from-blue-800 dark:to-cyan-900 rounded-full opacity-25 blur-xl"></div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-72 glass-card border-r border-gray-200 dark:border-gray-700 transform transition-transform duration-300 ease-in-out z-40 animate-slide-in-left">
+            <div class="p-8">
+                <!-- Logo -->
+                <div class="flex items-center mb-12">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center shadow-glow mr-4">
+                        <i class="fas fa-gem text-white text-xl animate-float"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-black bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent">LUXE Admin</h1>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Dashboard</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="space-y-2">
+                    <a href="#" onclick="showSection('dashboard')" class="nav-item flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 transition-all duration-300 group active">
+                        <i class="fas fa-chart-pie mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium">Tableau de bord</span>
+                    </a>
+                    <a href="#" onclick="showSection('products')" class="nav-item flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 transition-all duration-300 group">
+                        <i class="fas fa-box mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium">Produits</span>
+                        <span class="ml-auto bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-xs px-2 py-1 rounded-full font-semibold">8</span>
+                    </a>
+                    <a href="#" onclick="showSection('orders')" class="nav-item flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 transition-all duration-300 group">
+                        <i class="fas fa-shopping-cart mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium">Commandes</span>
+                        <span class="ml-auto bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs px-2 py-1 rounded-full font-semibold">12</span>
+                    </a>
+                    <a href="#" onclick="showSection('customers')" class="nav-item flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 transition-all duration-300 group">
+                        <i class="fas fa-users mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium">Clients</span>
+                    </a>
+                    <a href="#" onclick="showSection('analytics')" class="nav-item flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 transition-all duration-300 group">
+                        <i class="fas fa-chart-line mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium">Analytics</span>
+                    </a>
+                    <a href="#" onclick="showSection('settings')" class="nav-item flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 transition-all duration-300 group">
+                        <i class="fas fa-cog mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium">Paramètres</span>
+                    </a>
+                </nav>
+
+                <!-- Admin Profile -->
+                <div class="mt-12 p-4 bg-gradient-to-r from-primary-500 to-purple-600 rounded-2xl text-white shadow-glow">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-user-shield text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold">Admin LUXE</p>
+                            <p class="text-xs opacity-80">Administrateur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-auto">
+            <!-- Header -->
+            <header class="glass-card border-b border-gray-200 dark:border-gray-700 p-6 animate-slide-up">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <button id="sidebarToggle" class="lg:hidden mr-4 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div>
+                            <h2 id="pageTitle" class="text-2xl font-bold text-gray-900 dark:text-white">Tableau de bord</h2>
+                            <p id="pageSubtitle" class="text-gray-600 dark:text-gray-400">Aperçu de votre boutique</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <!-- Search -->
+                        <div class="relative hidden md:block">
+                            <input type="text" placeholder="Rechercher..." class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-2 pl-10 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all">
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                        <!-- Notifications -->
+                        <button class="relative p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                            <i class="fas fa-bell text-gray-600 dark:text-gray-400"></i>
+                            <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center animate-bounce-gentle">3</span>
+                        </button>
+                        <!-- Profile -->
+                        <button class="flex items-center space-x-3 p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                            <div class="w-8 h-8 bg-gradient-to-r from-primary-500 to-purple-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-white text-sm"></i>
+                            </div>
+                            <span class="hidden md:block font-medium text-gray-700 dark:text-gray-300">Admin</span>
+                            <i class="fas fa-chevron-down text-gray-400 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="p-6">
+                <!-- Dashboard Section -->
+                <div id="dashboardSection" class="section">
+                    <!-- Stats Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <!-- Total Revenue -->
+                        <div class="glass-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 animate-scale-in" style="animation-delay: 0.1s">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-glow">
+                                    <i class="fas fa-euro-sign text-white text-lg"></i>
+                                </div>
+                                <span class="text-green-500 text-sm font-semibold">+12.5%</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">24,847€</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Revenus totaux</p>
+                        </div>
+
+                        <!-- Total Orders -->
+                        <div class="glass-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 animate-scale-in" style="animation-delay: 0.2s">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-glow">
+                                    <i class="fas fa-shopping-cart text-white text-lg"></i>
+                                </div>
+                                <span class="text-blue-500 text-sm font-semibold">+8.3%</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">1,247</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Commandes totales</p>
+                        </div>
+
+                        <!-- Active Products -->
+                        <div class="glass-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 animate-scale-in" style="animation-delay: 0.3s">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center shadow-glow">
+                                    <i class="fas fa-box text-white text-lg"></i>
+                                </div>
+                                <span class="text-purple-500 text-sm font-semibold">+2</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">8</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Produits actifs</p>
+                        </div>
+
+                        <!-- Customers -->
+                        <div class="glass-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 animate-scale-in" style="animation-delay: 0.4s">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center shadow-glow">
+                                    <i class="fas fa-users text-white text-lg"></i>
+                                </div>
+                                <span class="text-orange-500 text-sm font-semibold">+24.1%</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">2,847</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Clients actifs</p>
+                        </div>
+                    </div>
+
+                    <!-- Charts Row -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                        <!-- Sales Chart -->
+                        <div class="glass-card rounded-2xl p-6 shadow-card animate-fade-in">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">Ventes mensuelles</h3>
+                                <select class="bg-transparent border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-1 text-sm">
+                                    <option>2024</option>
+                                    <option>2023</option>
+                                </select>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="salesChart" class="w-full h-full"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Product Categories -->
+                        <div class="glass-card rounded-2xl p-6 shadow-card animate-fade-in">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-6">Répartition par catégorie</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-4 h-4 bg-blue-500 rounded-full mr-3"></div>
+                                        <span class="text-gray-700 dark:text-gray-300">Électronique</span>
+                                    </div>
+                                    <span class="font-semibold text-gray-900 dark:text-white">45%</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-4 h-4 bg-green-500 rounded-full mr-3"></div>
+                                        <span class="text-gray-700 dark:text-gray-300">Sport</span>
+                                    </div>
+                                    <span class="font-semibold text-gray-900 dark:text-white">25%</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-4 h-4 bg-purple-500 rounded-full mr-3"></div>
+                                        <span class="text-gray-700 dark:text-gray-300">Vêtements</span>
+                                    </div>
+                                    <span class="font-semibold text-gray-900 dark:text-white">20%</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-4 h-4 bg-orange-500 rounded-full mr-3"></div>
+                                        <span class="text-gray-700 dark:text-gray-300">Maison</span>
+                                    </div>
+                                    <span class="font-semibold text-gray-900 dark:text-white">10%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="glass-card rounded-2xl p-6 shadow-card animate-fade-in">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-6">Activité récente</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-shopping-cart text-green-600 dark:text-green-400"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-medium text-gray-900 dark:text-white">Nouvelle commande #1247</p>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">iPhone 15 Pro Max - 1,299€</p>
+                                </div>
+                                <span class="text-sm text-gray-500 dark:text-gray-400">Il y a 5 min</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-user-plus text-blue-600 dark:text-blue-400"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-medium text-gray-900 dark:text-white">Nouveau client inscrit</p>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">marie.dubois@email.com</p>
+                                </div>
+                                <span class="text-sm text-gray-500 dark:text-gray-400">Il y a 12 min</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-box text-purple-600 dark:text-purple-400"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-medium text-gray-900 dark:text-white">Stock faible</p>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Lampe Design Scandinave - 2 restants</p>
+                                </div>
+                                <span class="text-sm text-gray-500 dark:text-gray-400">Il y a 1h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Section -->
+                <div id="productsSection" class="section hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Gestion des produits</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Gérez votre inventaire et vos produits</p>
+                        </div>
+                        <button onclick="openProductModal()" class="interactive-btn mt-4 sm:mt-0 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all shadow-glow font-semibold">
+                            <i class="fas fa-plus mr-2"></i>
+                            Ajouter un produit
+                        </button>
+                    </div>
+
+                    <!-- Filters -->
+                    <div class="glass-card rounded-2xl p-6 mb-6 shadow-card">
+                        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <div class="relative">
+                                    <input type="text" id="productSearch" placeholder="Rechercher un produit..." class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-2 pl-10 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all w-full sm:w-64">
+                                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                </div>
+                                <select id="categoryFilter" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all">
+                                    <option value="">Toutes les catégories</option>
+                                    <option value="electronique">Électronique</option>
+                                    <option value="sport">Sport</option>
+                                    <option value="vetements">Vêtements</option>
+                                    <option value="maison">Maison</option>
+                                </select>
+                                <select id="stockFilter" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all">
+                                    <option value="">Tous les stocks</option>
+                                    <option value="in-stock">En stock</option>
+                                    <option value="out-of-stock">Rupture</option>
+                                    <option value="low-stock">Stock faible</option>
+                                </select>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button id="gridViewBtn" class="p-2 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors">
+                                    <i class="fas fa-th-large"></i>
+                                </button>
+                                <button id="listViewBtn" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400 transition-colors">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid/List -->
+                    <div id="productsContainer">
+                        <!-- Products will be rendered here -->
+                    </div>
+                </div>
+
+                <!-- Other Sections (Orders, Customers, etc.) -->
+                <div id="ordersSection" class="section hidden">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Gestion des commandes</h3>
+                    <div class="glass-card rounded-2xl p-6 shadow-card">
+                        <p class="text-gray-600 dark:text-gray-400">Interface de gestion des commandes en développement...</p>
+                    </div>
+                </div>
+
+                <div id="customersSection" class="section hidden">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Gestion des clients</h3>
+                    <div class="glass-card rounded-2xl p-6 shadow-card">
+                        <p class="text-gray-600 dark:text-gray-400">Interface de gestion des clients en développement...</p>
+                    </div>
+                </div>
+
+                <div id="analyticsSection" class="section hidden">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Analytics avancées</h3>
+                    <div class="glass-card rounded-2xl p-6 shadow-card">
+                        <p class="text-gray-600 dark:text-gray-400">Interface d'analytics avancées en développement...</p>
+                    </div>
+                </div>
+
+                <div id="settingsSection" class="section hidden">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Paramètres</h3>
+                    <div class="glass-card rounded-2xl p-6 shadow-card">
+                        <p class="text-gray-600 dark:text-gray-400">Interface de paramètres en développement...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="modal-content glass-card rounded-3xl p-8 max-w-4xl w-full shadow-card-hover">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 id="modalTitle" class="text-2xl font-bold text-gray-900 dark:text-white">Ajouter un produit</h3>
+                    <button onclick="closeProductModal()" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <form id="productForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Left Column -->
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Nom du produit</label>
+                                <input type="text" id="productName" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all" placeholder="iPhone 15 Pro Max">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Prix (€)</label>
+                                    <input type="number" id="productPrice" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all" placeholder="1299">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Prix original (€)</label>
+                                    <input type="number" id="productOriginalPrice" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all" placeholder="1399">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Catégorie</label>
+                                    <select id="productCategory" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all">
+                                        <option value="electronique">Électronique</option>
+                                        <option value="sport">Sport</option>
+                                        <option value="vetements">Vêtements</option>
+                                        <option value="maison">Maison</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Marque</label>
+                                    <input type="text" id="productBrand" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all" placeholder="Apple">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Note</label>
+                                    <input type="number" step="0.1" min="0" max="5" id="productRating" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all" placeholder="4.5">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Avis</label>
+                                    <input type="number" id="productReviews" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all" placeholder="1247">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column -->
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Description</label>
+                                <textarea id="productDescription" rows="4" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all resize-none" placeholder="Description détaillée du produit..."></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Badges (séparés par des virgules)</label>
+                                <input type="text" id="productBadges" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all" placeholder="Nouveau, Premium, Intelligence">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Caractéristiques (séparées par des virgules)</label>
+                                <textarea id="productFeatures" rows="3" class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all resize-none" placeholder="Puce A17 Pro, Caméra 48MP, USB-C, Action Button"></textarea>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="productInStock" class="w-5 h-5 text-primary-600 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded focus:ring-primary-500 focus:ring-2">
+                                    <label for="productInStock" class="ml-3 text-sm font-semibold text-gray-700 dark:text-gray-300">En stock</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="productFastDelivery" class="w-5 h-5 text-primary-600 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded focus:ring-primary-500 focus:ring-2">
+                                    <label for="productFastDelivery" class="ml-3 text-sm font-semibold text-gray-700 dark:text-gray-300">Livraison rapide</label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Image du produit</label>
+                                <div class="flex items-center justify-center w-full">
+                                    <label for="productImage" class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-xl cursor-pointer bg-gray-50 dark:bg-gray-800 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                            <i class="fas fa-cloud-upload-alt text-2xl text-gray-400 mb-2"></i>
+                                            <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Cliquez pour uploader</span></p>
+                                        </div>
+                                        <input id="productImage" type="file" class="hidden" accept="image/*">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end space-x-4 pt-6 border-t border-gray-200 dark:border-gray-700">
+                        <button type="button" onclick="closeProductModal()" class="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors font-semibold">
+                            Annuler
+                        </button>
+                        <button type="submit" class="interactive-btn px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all shadow-glow font-semibold">
+                            <i class="fas fa-save mr-2"></i>
+                            <span id="saveButtonText">Sauvegarder</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Sample products data (same as from the client side)
+        let products = [
+            {
+                id: 1,
+                name: "iPhone 15 Pro Max",
+                price: 1299,
+                originalPrice: 1399,
+                category: "electronique",
+                brand: "apple",
+                rating: 4.9,
+                reviews: 1247,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad1)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='40%25' font-size='20' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3EiPhone 15 Pro Max%3C/text%3E%3Ctext x='50%25' y='65%25' font-size='60' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif'%3E📱%3C/text%3E%3Ctext x='50%25' y='85%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(255,255,255,0.8)' font-family='Arial, sans-serif'%3EPremium%3C/text%3E%3C/svg%3E",
+                description: "Le smartphone le plus avancé d'Apple avec puce A17 Pro et caméra 48MP révolutionnaire",
+                badges: ["Nouveau", "Premium", "Intelligence"],
+                inStock: true,
+                fastDelivery: true,
+                features: ["Puce A17 Pro", "Caméra 48MP", "USB-C", "Action Button"]
+            },
+            {
+                id: 2,
+                name: "Galaxy S24 Ultra",
+                price: 1199,
+                originalPrice: null,
+                category: "electronique",
+                brand: "samsung",
+                rating: 4.7,
+                reviews: 892,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234facfe;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2300f2fe;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad2)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='40%25' font-size='20' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3EGalaxy S24 Ultra%3C/text%3E%3Ctext x='50%25' y='65%25' font-size='60' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif'%3E📱%3C/text%3E%3Ctext x='50%25' y='85%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(255,255,255,0.8)' font-family='Arial, sans-serif'%3ES Pen%3C/text%3E%3C/svg%3E",
+                description: "Smartphone premium avec S Pen intégré, zoom 100x et intelligence artificielle avancée",
+                badges: ["S Pen", "100x Zoom", "AI"],
+                inStock: true,
+                fastDelivery: true,
+                features: ["S Pen", "Zoom 100x", "AI Galaxy", "Écran 6.8\""]
+            },
+            {
+                id: 3,
+                name: "MacBook Pro M3 Max",
+                price: 2499,
+                originalPrice: 2699,
+                category: "electronique",
+                brand: "apple",
+                rating: 4.8,
+                reviews: 634,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f093fb;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23f5576c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad3)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='35%25' font-size='18' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3EMacBook Pro%3C/text%3E%3Ctext x='50%25' y='45%25' font-size='18' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3EM3 Max%3C/text%3E%3Ctext x='50%25' y='70%25' font-size='60' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif'%3E💻%3C/text%3E%3Ctext x='50%25' y='90%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(255,255,255,0.8)' font-family='Arial, sans-serif'%3EPromo%3C/text%3E%3C/svg%3E",
+                description: "Ordinateur portable professionnel avec performances exceptionnelles pour créateurs et développeurs",
+                badges: ["Pro", "Promo", "Performance"],
+                inStock: true,
+                fastDelivery: false,
+                features: ["Puce M3 Max", "16\" Liquid Retina XDR", "22h autonomie", "Thunderbolt 4"]
+            },
+            {
+                id: 4,
+                name: "Nike Air Jordan 1 Retro",
+                price: 179,
+                originalPrice: 199,
+                category: "sport",
+                brand: "nike",
+                rating: 4.6,
+                reviews: 2156,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad4' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff9a9e;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23fecfef;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad4)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='35%25' font-size='18' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3ENike Air Jordan 1%3C/text%3E%3Ctext x='50%25' y='45%25' font-size='18' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3ERetro%3C/text%3E%3Ctext x='50%25' y='70%25' font-size='60' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif'%3E👟%3C/text%3E%3Ctext x='50%25' y='90%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(255,255,255,0.8)' font-family='Arial, sans-serif'%3EIconique%3C/text%3E%3C/svg%3E",
+                description: "Baskets iconiques au design intemporel et confort optimal pour le style et la performance",
+                badges: ["Iconique", "Promo", "Heritage"],
+                inStock: true,
+                fastDelivery: true,
+                features: ["Design original", "Cuir premium", "Semelle Air", "Édition limitée"]
+            },
+            {
+                id: 5,
+                name: "Collection T-shirt Premium",
+                price: 89,
+                originalPrice: null,
+                category: "vetements",
+                brand: "nike",
+                rating: 4.4,
+                reviews: 743,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad5' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23a8edea;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23fed6e3;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad5)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='35%25' font-size='16' text-anchor='middle' dy='.3em' fill='%23333' font-family='Arial, sans-serif' font-weight='bold'%3ECollection T-shirt%3C/text%3E%3Ctext x='50%25' y='45%25' font-size='16' text-anchor='middle' dy='.3em' fill='%23333' font-family='Arial, sans-serif' font-weight='bold'%3EPremium%3C/text%3E%3Ctext x='50%25' y='70%25' font-size='60' text-anchor='middle' dy='.3em' fill='%23333' font-family='Arial, sans-serif'%3E👕%3C/text%3E%3Ctext x='50%25' y='90%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(51,51,51,0.8)' font-family='Arial, sans-serif'%3EBio%3C/text%3E%3C/svg%3E",
+                description: "Collection de t-shirts en coton bio de qualité supérieure, design moderne et éthique",
+                badges: ["Bio", "Collection", "Éthique"],
+                inStock: true,
+                fastDelivery: true,
+                features: ["Coton bio", "Coupe moderne", "Teinture écologique", "Pack de 3"]
+            },
+            {
+                id: 6,
+                name: "Lampe Design Scandinave",
+                price: 159,
+                originalPrice: 189,
+                category: "maison",
+                brand: "ikea",
+                rating: 4.3,
+                reviews: 428,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad6' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ffecd2;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23fcb69f;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad6)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='35%25' font-size='18' text-anchor='middle' dy='.3em' fill='%23333' font-family='Arial, sans-serif' font-weight='bold'%3ELampe Design%3C/text%3E%3Ctext x='50%25' y='45%25' font-size='18' text-anchor='middle' dy='.3em' fill='%23333' font-family='Arial, sans-serif' font-weight='bold'%3EScandinave%3C/text%3E%3Ctext x='50%25' y='70%25' font-size='60' text-anchor='middle' dy='.3em' fill='%23333' font-family='Arial, sans-serif'%3E💡%3C/text%3E%3Ctext x='50%25' y='90%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(51,51,51,0.8)' font-family='Arial, sans-serif'%3EPromo%3C/text%3E%3C/svg%3E",
+                description: "Éclairage moderne au design épuré pour créer une ambiance chaleureuse dans votre intérieur",
+                badges: ["Design", "Promo", "Scandinave"],
+                inStock: false,
+                fastDelivery: false,
+                features: ["LED intégrée", "Variateur", "Bois naturel", "Design minimaliste"]
+            },
+            {
+                id: 7,
+                name: "Casque Gaming Pro X",
+                price: 299,
+                originalPrice: null,
+                category: "electronique",
+                brand: "logitech",
+                rating: 4.7,
+                reviews: 1834,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad7' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23434343;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23000000;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad7)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='35%25' font-size='18' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3ECasque Gaming%3C/text%3E%3Ctext x='50%25' y='45%25' font-size='18' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3EPro X%3C/text%3E%3Ctext x='50%25' y='70%25' font-size='60' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif'%3E🎧%3C/text%3E%3Ctext x='50%25' y='90%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(255,255,255,0.8)' font-family='Arial, sans-serif'%3EPro%3C/text%3E%3C/svg%3E",
+                description: "Casque gaming professionnel avec son surround 7.1 et microphone Blue VO!CE",
+                badges: ["Gaming", "Pro", "Blue VO!CE"],
+                inStock: true,
+                fastDelivery: true,
+                features: ["Son 7.1", "Blue VO!CE", "RGB Lightsync", "Sans fil"]
+            },
+            {
+                id: 8,
+                name: "Ensemble Sportswear Elite",
+                price: 149,
+                originalPrice: 179,
+                category: "sport",
+                brand: "adidas",
+                rating: 4.5,
+                reviews: 967,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad8' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2343e97b;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2338f9d7;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad8)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='30%25' font-size='16' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3EEnsemble%3C/text%3E%3Ctext x='50%25' y='40%25' font-size='16' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3ESportswear%3C/text%3E%3Ctext x='50%25' y='50%25' font-size='16' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3EElite%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='60' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif'%3E🏃%3C/text%3E%3Ctext x='50%25' y='92%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(255,255,255,0.8)' font-family='Arial, sans-serif'%3ESet%3C/text%3E%3C/svg%3E",
+                description: "Ensemble complet pour le sport et les loisirs avec technologie Climacool",
+                badges: ["Elite", "Promo", "Set", "Climacool"],
+                inStock: true,
+                fastDelivery: true,
+                features: ["Climacool", "Ensemble complet", "Respirant", "Anti-odeur"]
+            }
+        ];
+
+        let filteredProducts = [...products];
+        let currentViewMode = 'grid';
+        let editingProductId = null;
+
+        // DOM Elements
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+        const pageTitle = document.getElementById('pageTitle');
+        const pageSubtitle = document.getElementById('pageSubtitle');
+        const productModal = document.getElementById('productModal');
+        const productForm = document.getElementById('productForm');
+        const productsContainer = document.getElementById('productsContainer');
+        const productSearch = document.getElementById('productSearch');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const stockFilter = document.getElementById('stockFilter');
+        const gridViewBtn = document.getElementById('gridViewBtn');
+        const listViewBtn = document.getElementById('listViewBtn');
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+            initializeChart();
+            showToast('Dashboard LUXE chargé avec succès! 🚀', 'success');
+            
+            // Setup event listeners
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            // Sidebar toggle
+            sidebarToggle?.addEventListener('click', toggleSidebar);
+
+            // Search and filters
+            productSearch?.addEventListener('input', debounce(filterProducts, 300));
+            categoryFilter?.addEventListener('change', filterProducts);
+            stockFilter?.addEventListener('change', filterProducts);
+
+            // View mode buttons
+            gridViewBtn?.addEventListener('click', () => switchViewMode('grid'));
+            listViewBtn?.addEventListener('click', () => switchViewMode('list'));
+
+            // Product form
+            productForm?.addEventListener('submit', handleProductSubmit);
+
+            // File upload
+            const productImage = document.getElementById('productImage');
+            productImage?.addEventListener('change', handleImageUpload);
+        }
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('-translate-x-full');
+        }
+
+        // Navigation
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show selected section
+            const targetSection = document.getElementById(sectionName + 'Section');
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+
+            // Update navigation
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active', 'bg-primary-100', 'dark:bg-primary-900/30', 'text-primary-600', 'dark:text-primary-400');
+            });
+
+            event.target.classList.add('active', 'bg-primary-100', 'dark:bg-primary-900/30', 'text-primary-600', 'dark:text-primary-400');
+
+            // Update page title
+            const titles = {
+                dashboard: {
+                    title: 'Tableau de bord',
+                    subtitle: 'Aperçu de votre boutique'
+                },
+                products: {
+                    title: 'Gestion des produits',
+                    subtitle: 'Gérez votre inventaire et catalogue'
+                },
+                orders: {
+                    title: 'Gestion des commandes',
+                    subtitle: 'Suivez et gérez les commandes'
+                },
+                customers: {
+                    title: 'Gestion des clients',
+                    subtitle: 'Base de données clients'
+                },
+                analytics: {
+                    title: 'Analytics avancées',
+                    subtitle: 'Rapports et statistiques détaillées'
+                },
+                settings: {
+                    title: 'Paramètres',
+                    subtitle: 'Configuration de la boutique'
+                }
+            };
+
+            if (titles[sectionName]) {
+                pageTitle.textContent = titles[sectionName].title;
+                pageSubtitle.textContent = titles[sectionName].subtitle;
+            }
+        }
+
+        // Products Management
+        function renderProducts() {
+            if (filteredProducts.length === 0) {
+                productsContainer.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <div class="glass-card rounded-2xl p-12 shadow-card">
+                            <i class="fas fa-box-open text-6xl text-gray-400 mb-4"></i>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Aucun produit trouvé</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Aucun produit ne correspond à vos critères de recherche.</p>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            if (currentViewMode === 'grid') {
+                renderGridView();
+            } else {
+                renderListView();
+            }
+        }
+
+        function renderGridView() {
+            productsContainer.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6';
+            
+            const productHTML = filteredProducts.map((product, index) => {
+                const discountPercentage = product.originalPrice 
+                    ? Math.round((1 - product.price / product.originalPrice) * 100) 
+                    : 0;
+
+                return `
+                    <div class="glass-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 group animate-scale-in" style="animation-delay: ${index * 0.1}s">
+                        <div class="relative">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute top-3 left-3 flex flex-wrap gap-2">
+                                ${product.badges.map(badge => `<span class="bg-primary-500 text-white text-xs px-2 py-1 rounded-full font-semibold">${badge}</span>`).join('')}
+                                ${discountPercentage > 0 ? `<span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full font-semibold">-${discountPercentage}%</span>` : ''}
+                            </div>
+                            <div class="absolute top-3 right-3">
+                                <span class="status-badge ${product.inStock ? 'status-active' : 'status-inactive'}">
+                                    ${product.inStock ? 'En stock' : 'Rupture'}
+                                </span>
+                            </div>
+                            <div class="absolute inset-x-3 bottom-3 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                                <div class="flex space-x-2">
+                                    <button onclick="editProduct(${product.id})" class="flex-1 bg-white/90 hover:bg-white text-gray-800 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+                                        <i class="fas fa-edit mr-1"></i>
+                                        Éditer
+                                    </button>
+                                    <button onclick="deleteProduct(${product.id})" class="flex-1 bg-red-500/90 hover:bg-red-500 text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+                                        <i class="fas fa-trash mr-1"></i>
+                                        Supprimer
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2 truncate">${product.name}</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">${product.description}</p>
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center">
+                                    <span class="text-yellow-400 mr-1">★</span>
+                                    <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">${product.rating}</span>
+                                    <span class="text-xs text-gray-500 dark:text-gray-400 ml-1">(${product.reviews})</span>
+                                </div>
+                                <span class="text-xs text-gray-500 dark:text-gray-400 capitalize">${product.category}</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-xl font-bold text-gray-900 dark:text-white">${product.price}€</span>
+                                    ${product.originalPrice ? `<span class="text-sm text-gray-500 dark:text-gray-400 line-through ml-2">${product.originalPrice}€</span>` : ''}
+                                </div>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">${product.brand}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            productsContainer.innerHTML = productHTML;
+        }
+
+        function renderListView() {
+            productsContainer.className = 'space-y-4';
+            
+            const productHTML = filteredProducts.map((product, index) => {
+                const discountPercentage = product.originalPrice 
+                    ? Math.round((1 - product.price / product.originalPrice) * 100) 
+                    : 0;
+
+                return `
+                    <div class="glass-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 animate-fade-in" style="animation-delay: ${index * 0.05}s">
+                        <div class="flex items-center space-x-6">
+                            <div class="relative flex-shrink-0">
+                                <img src="${product.image}" alt="${product.name}" class="w-20 h-20 object-cover rounded-xl">
+                                <div class="absolute -top-2 -right-2">
+                                    <span class="status-badge ${product.inStock ? 'status-active' : 'status-inactive'}">
+                                        ${product.inStock ? 'En stock' : 'Rupture'}
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1">
+                                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">${product.name}</h3>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">${product.description}</p>
+                                        <div class="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
+                                            <span class="capitalize">${product.category}</span>
+                                            <span>${product.brand}</span>
+                                            <span class="flex items-center">
+                                                <span class="text-yellow-400 mr-1">★</span>
+                                                ${product.rating} (${product.reviews} avis)
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center space-x-6">
+                                        <div class="text-right">
+                                            <div class="text-2xl font-bold text-gray-900 dark:text-white">${product.price}€</div>
+                                            ${product.originalPrice ? `<div class="text-sm text-gray-500 dark:text-gray-400 line-through">${product.originalPrice}€</div>` : ''}
+                                        </div>
+                                        
+                                        <div class="flex space-x-2">
+                                            <button onclick="editProduct(${product.id})" class="interactive-btn px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors font-semibold">
+                                                <i class="fas fa-edit mr-1"></i>
+                                                Éditer
+                                            </button>
+                                            <button onclick="deleteProduct(${product.id})" class="interactive-btn px-4 py-2 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-lg hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors font-semibold">
+                                                <i class="fas fa-trash mr-1"></i>
+                                                Supprimer
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            productsContainer.innerHTML = productHTML;
+        }
+
+        function switchViewMode(mode) {
+            currentViewMode = mode;
+            
+            // Update button states
+            if (mode === 'grid') {
+                gridViewBtn.classList.add('bg-primary-100', 'dark:bg-primary-900/30', 'text-primary-600', 'dark:text-primary-400');
+                gridViewBtn.classList.remove('hover:bg-gray-100', 'dark:hover:bg-gray-800', 'text-gray-600', 'dark:text-gray-400');
+                
+                listViewBtn.classList.remove('bg-primary-100', 'dark:bg-primary-900/30', 'text-primary-600', 'dark:text-primary-400');
+                listViewBtn.classList.add('hover:bg-gray-100', 'dark:hover:bg-gray-800', 'text-gray-600', 'dark:text-gray-400');
+            } else {
+                listViewBtn.classList.add('bg-primary-100', 'dark:bg-primary-900/30', 'text-primary-600', 'dark:text-primary-400');
+                listViewBtn.classList.remove('hover:bg-gray-100', 'dark:hover:bg-gray-800', 'text-gray-600', 'dark:text-gray-400');
+                
+                gridViewBtn.classList.remove('bg-primary-100', 'dark:bg-primary-900/30', 'text-primary-600', 'dark:text-primary-400');
+                gridViewBtn.classList.add('hover:bg-gray-100', 'dark:hover:bg-gray-800', 'text-gray-600', 'dark:text-gray-400');
+            }
+            
+            renderProducts();
+            showToast(`Vue ${mode === 'grid' ? 'grille' : 'liste'} activée`, 'info');
+        }
+
+        function filterProducts() {
+            const searchTerm = productSearch.value.toLowerCase();
+            const selectedCategory = categoryFilter.value;
+            const selectedStockFilter = stockFilter.value;
+
+            filteredProducts = products.filter(product => {
+                const matchesSearch = product.name.toLowerCase().includes(searchTerm) ||
+                                    product.description.toLowerCase().includes(searchTerm) ||
+                                    product.brand.toLowerCase().includes(searchTerm);
+                
+                const matchesCategory = !selectedCategory || product.category === selectedCategory;
+                
+                let matchesStock = true;
+                if (selectedStockFilter === 'in-stock') {
+                    matchesStock = product.inStock;
+                } else if (selectedStockFilter === 'out-of-stock') {
+                    matchesStock = !product.inStock;
+                } else if (selectedStockFilter === 'low-stock') {
+                    // Simulate low stock condition
+                    matchesStock = product.inStock && Math.random() > 0.8;
+                }
+
+                return matchesSearch && matchesCategory && matchesStock;
+            });
+
+            renderProducts();
+        }
+
+        // Product Modal Functions
+        function openProductModal(productId = null) {
+            editingProductId = productId;
+            const modal = document.getElementById('productModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const saveButtonText = document.getElementById('saveButtonText');
+
+            if (productId) {
+                const product = products.find(p => p.id === productId);
+                if (product) {
+                    populateProductForm(product);
+                    modalTitle.textContent = 'Modifier le produit';
+                    saveButtonText.textContent = 'Mettre à jour';
+                }
+            } else {
+                resetProductForm();
+                modalTitle.textContent = 'Ajouter un produit';
+                saveButtonText.textContent = 'Ajouter';
+            }
+
+            modal.classList.add('show');
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('productModal');
+            modal.classList.remove('show');
+            resetProductForm();
+            editingProductId = null;
+        }
+
+        function populateProductForm(product) {
+            document.getElementById('productName').value = product.name;
+            document.getElementById('productPrice').value = product.price;
+            document.getElementById('productOriginalPrice').value = product.originalPrice || '';
+            document.getElementById('productCategory').value = product.category;
+            document.getElementById('productBrand').value = product.brand;
+            document.getElementById('productRating').value = product.rating;
+            document.getElementById('productReviews').value = product.reviews;
+            document.getElementById('productDescription').value = product.description;
+            document.getElementById('productBadges').value = product.badges.join(', ');
+            document.getElementById('productFeatures').value = product.features.join(', ');
+            document.getElementById('productInStock').checked = product.inStock;
+            document.getElementById('productFastDelivery').checked = product.fastDelivery;
+        }
+
+        function resetProductForm() {
+            document.getElementById('productForm').reset();
+        }
+
+        function handleProductSubmit(e) {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const productData = {
+                name: document.getElementById('productName').value,
+                price: parseFloat(document.getElementById('productPrice').value),
+                originalPrice: document.getElementById('productOriginalPrice').value ? parseFloat(document.getElementById('productOriginalPrice').value) : null,
+                category: document.getElementById('productCategory').value,
+                brand: document.getElementById('productBrand').value,
+                rating: parseFloat(document.getElementById('productRating').value),
+                reviews: parseInt(document.getElementById('productReviews').value),
+                description: document.getElementById('productDescription').value,
+                badges: document.getElementById('productBadges').value.split(',').map(b => b.trim()).filter(b => b),
+                features: document.getElementById('productFeatures').value.split(',').map(f => f.trim()).filter(f => f),
+                inStock: document.getElementById('productInStock').checked,
+                fastDelivery: document.getElementById('productFastDelivery').checked,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23667eea'/%3E%3Ctext x='50%25' y='50%25' font-size='60' text-anchor='middle' dy='.3em' fill='white'%3E📦%3C/text%3E%3C/svg%3E"
+            };
+
+            if (editingProductId) {
+                // Update existing product
+                const productIndex = products.findIndex(p => p.id === editingProductId);
+                if (productIndex !== -1) {
+                    products[productIndex] = { ...products[productIndex], ...productData };
+                    showToast('Produit mis à jour avec succès! ✅', 'success');
+                }
+            } else {
+                // Add new product
+                const newProduct = {
+                    id: Math.max(...products.map(p => p.id)) + 1,
+                    ...productData
+                };
+                products.push(newProduct);
+                showToast('Nouveau produit ajouté avec succès! 🎉', 'success');
+            }
+
+            closeProductModal();
+            filterProducts(); // Refresh the display
+        }
+
+        function editProduct(productId) {
+            openProductModal(productId);
+        }
+
+        function deleteProduct(productId) {
+            showConfirmDialog(
+                'Êtes-vous sûr de vouloir supprimer ce produit ?',
+                () => {
+                    const productIndex = products.findIndex(p => p.id === productId);
+                    if (productIndex !== -1) {
+                        const productName = products[productIndex].name;
+                        products.splice(productIndex, 1);
+                        filteredProducts = filteredProducts.filter(p => p.id !== productId);
+                        renderProducts();
+                        showToast(`Produit "${productName}" supprimé avec succès! 🗑️`, 'success');
+                    }
+                }
+            );
+        }
+
+        function handleImageUpload(e) {
+            const file = e.target.files[0];
+            if (file) {
+                // In a real app, you would upload the file to a server
+                // For demo purposes, we'll just show a success message
+                showToast('Image uploadée avec succès! 📸', 'success');
+            }
+        }
+
+        // Chart initialization
+        function initializeChart() {
+            const canvas = document.getElementById('salesChart');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            
+            // Simple chart drawing (in a real app, use Chart.js or similar)
+            const chartData = [65, 59, 80, 81, 56, 55, 40, 65, 75, 85, 90, 95];
+            const months = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'];
+            
+            // Set canvas size
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            
+            // Draw simple line chart
+            const padding = 40;
+            const chartWidth = canvas.width - 2 * padding;
+            const chartHeight = canvas.height - 2 * padding;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw grid
+            ctx.strokeStyle = '#e5e7eb';
+            ctx.lineWidth = 1;
+            
+            for (let i = 0; i <= 5; i++) {
+                const y = padding + (chartHeight / 5) * i;
+                ctx.beginPath();
+                ctx.moveTo(padding, y);
+                ctx.lineTo(padding + chartWidth, y);
+                ctx.stroke();
+            }
+            
+            // Draw data line
+            ctx.strokeStyle = '#5D5CDE';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            chartData.forEach((value, index) => {
+                const x = padding + (chartWidth / (chartData.length - 1)) * index;
+                const y = padding + chartHeight - (value / 100) * chartHeight;
+                
+                if (index === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            });
+            
+            ctx.stroke();
+            
+            // Draw data points
+            ctx.fillStyle = '#5D5CDE';
+            chartData.forEach((value, index) => {
+                const x = padding + (chartWidth / (chartData.length - 1)) * index;
+                const y = padding + chartHeight - (value / 100) * chartHeight;
+                
+                ctx.beginPath();
+                ctx.arc(x, y, 4, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+
+        // Utility Functions
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            const icons = {
+                success: 'fas fa-check-circle text-green-500',
+                error: 'fas fa-exclamation-circle text-red-500',
+                warning: 'fas fa-exclamation-triangle text-yellow-500',
+                info: 'fas fa-info-circle text-blue-500'
+            };
+            
+            const colors = {
+                success: 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800',
+                error: 'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800',
+                warning: 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800',
+                info: 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800'
+            };
+            
+            toast.className = `toast glass-card rounded-xl p-4 shadow-card border-2 ${colors[type]} flex items-center space-x-3 min-w-80`;
+            toast.innerHTML = `
+                <i class="${icons[type]} text-lg"></i>
+                <span class="font-medium text-gray-800 dark:text-gray-200">${message}</span>
+                <button onclick="this.parentElement.remove()" class="ml-auto text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            document.getElementById('toastContainer').appendChild(toast);
+            
+            // Show toast
+            setTimeout(() => toast.classList.add('show'), 100);
+            
+            // Auto remove after 4 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        function showConfirmDialog(message, onConfirm) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 backdrop-blur-sm';
+            modal.innerHTML = `
+                <div class="glass-card p-8 rounded-3xl shadow-card-hover max-w-md w-full mx-4 animate-scale-in">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-exclamation-triangle text-red-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Confirmation</h3>
+                        <p class="text-gray-600 dark:text-gray-400">${message}</p>
+                    </div>
+                    <div class="flex justify-center space-x-4">
+                        <button onclick="this.closest('.fixed').remove()" class="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors font-semibold">Annuler</button>
+                        <button onclick="this.closest('.fixed').remove(); (${onConfirm})()" class="px-6 py-3 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors font-semibold">Confirmer</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            // Auto-remove modal on background click
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Global functions
+        window.showSection = showSection;
+        window.openProductModal = openProductModal;
+        window.closeProductModal = closeProductModal;
+        window.editProduct = editProduct;
+        window.deleteProduct = deleteProduct;
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modal = document.querySelector('.modal.show');
+                if (modal) {
+                    closeProductModal();
+                }
+            }
+        });
+
+        // Close modal on background click
+        document.getElementById('productModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProductModal();
+            }
+        });
+    </script>
+
+
+</body></html>

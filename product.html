@@ -1,0 +1,2959 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+  <head>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🌟 LUXE Store - Boutique du Futur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Orbitron:wght@400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+            colors: {
+              primary: {
+                50: "#f0f0ff",
+                100: "#e5e5ff",
+                200: "#d1d1ff",
+                300: "#a8a8ff",
+                400: "#7a7aff",
+                500: "#5D5CDE",
+                600: "#4f46e5",
+                700: "#4338ca",
+                800: "#3730a3",
+                900: "#312e81",
+              },
+              neutral: {
+                25: "#fcfcfd",
+                50: "#f9fafb",
+                100: "#f3f4f6",
+                200: "#e5e7eb",
+                300: "#d1d5db",
+                400: "#9ca3af",
+                500: "#6b7280",
+                600: "#4b5563",
+                700: "#374151",
+                800: "#1f2937",
+                900: "#111827",
+                950: "#030712",
+              },
+            },
+            animation: {
+              "fade-in": "fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
+              "slide-up": "slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+              "slide-down": "slideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+              "scale-in": "scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+              float: "float 3s ease-in-out infinite",
+              shimmer: "shimmer 2s linear infinite",
+              "bounce-gentle": "bounceGentle 2s ease-in-out infinite",
+              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              wiggle: "wiggle 1s ease-in-out infinite",
+              "heart-beat": "heartBeat 1.5s ease-in-out infinite",
+              "rotate-3d": "rotate3d 20s linear infinite",
+              "glow-pulse": "glowPulse 2s ease-in-out infinite alternate",
+              "slide-in-left": "slideInLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+              "slide-in-right":
+                "slideInRight 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+              "zoom-in": "zoomIn 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+              flip: "flip 0.6s ease-in-out",
+              elastic: "elastic 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0", transform: "translateY(30px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              slideUp: {
+                "0%": { opacity: "0", transform: "translateY(40px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              slideDown: {
+                "0%": { opacity: "0", transform: "translateY(-40px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              scaleIn: {
+                "0%": { opacity: "0", transform: "scale(0.8)" },
+                "100%": { opacity: "1", transform: "scale(1)" },
+              },
+              slideInLeft: {
+                "0%": { opacity: "0", transform: "translateX(-50px)" },
+                "100%": { opacity: "1", transform: "translateX(0)" },
+              },
+              slideInRight: {
+                "0%": { opacity: "0", transform: "translateX(50px)" },
+                "100%": { opacity: "1", transform: "translateX(0)" },
+              },
+              zoomIn: {
+                "0%": { opacity: "0", transform: "scale(0.5)" },
+                "100%": { opacity: "1", transform: "scale(1)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-8px)" },
+              },
+              shimmer: {
+                "0%": { transform: "translateX(-100%)" },
+                "100%": { transform: "translateX(100%)" },
+              },
+              bounceGentle: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-12px)" },
+              },
+              wiggle: {
+                "0%, 100%": { transform: "rotate(-3deg)" },
+                "50%": { transform: "rotate(3deg)" },
+              },
+              heartBeat: {
+                "0%": { transform: "scale(1)" },
+                "14%": { transform: "scale(1.3)" },
+                "28%": { transform: "scale(1)" },
+                "42%": { transform: "scale(1.3)" },
+                "70%": { transform: "scale(1)" },
+              },
+              rotate3d: {
+                "0%": { transform: "rotateY(0deg)" },
+                "100%": { transform: "rotateY(360deg)" },
+              },
+              glowPulse: {
+                "0%": { boxShadow: "0 0 20px rgba(93, 92, 222, 0.3)" },
+                "100%": { boxShadow: "0 0 40px rgba(93, 92, 222, 0.6)" },
+              },
+              flip: {
+                "0%": { transform: "rotateY(0)" },
+                "100%": { transform: "rotateY(180deg)" },
+              },
+              elastic: {
+                "0%": { transform: "scale(0)" },
+                "50%": { transform: "scale(1.2)" },
+                "100%": { transform: "scale(1)" },
+              },
+            },
+            boxShadow: {
+              glow: "0 0 30px rgba(93, 92, 222, 0.4)",
+              "glow-lg": "0 0 50px rgba(93, 92, 222, 0.6)",
+              "inner-glow": "inset 0 0 20px rgba(93, 92, 222, 0.1)",
+              neo: "8px 8px 16px rgba(0, 0, 0, 0.1), -8px -8px 16px rgba(255, 255, 255, 0.9)",
+              "neo-dark":
+                "8px 8px 16px rgba(0, 0, 0, 0.3), -8px -8px 16px rgba(255, 255, 255, 0.05)",
+              float: "0 20px 40px rgba(0, 0, 0, 0.1)",
+              "float-lg": "0 30px 60px rgba(0, 0, 0, 0.15)",
+            },
+            backdropBlur: {
+              xs: "2px",
+            },
+            perspective: {
+              1000: "1000px",
+              2000: "2000px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Glass Effects */
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .dark .glass-card {
+        background: rgba(17, 24, 39, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      /* Product Card 3D Effects */
+      .product-card {
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+
+      .product-card:hover {
+        transform: translateY(-20px) rotateX(5deg) rotateY(5deg) scale(1.02);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+      }
+
+      .product-card .card-inner {
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        transform-style: preserve-3d;
+      }
+
+      .product-card:hover .card-inner {
+        transform: rotateY(8deg);
+      }
+
+      /* Advanced Hover Effects */
+      .interactive-element {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .interactive-element::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .interactive-element:hover::before {
+        left: 100%;
+      }
+
+      /* Animated Gradients */
+      .gradient-animated {
+        background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Floating Elements */
+      .floating-element {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-element:nth-child(2n) {
+        animation-delay: -2s;
+      }
+
+      .floating-element:nth-child(3n) {
+        animation-delay: -4s;
+      }
+
+      /* Morphing Button */
+      .morph-button {
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .morph-button::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 0.1);
+        transition: width 0.4s ease;
+      }
+
+      .morph-button:hover::after {
+        width: 100%;
+      }
+
+      /* Ripple Effect */
+      .ripple {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ripple::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+
+      .ripple:active::after {
+        width: 300px;
+        height: 300px;
+      }
+
+      /* Skeleton Loading */
+      .skeleton {
+        background: linear-gradient(
+          90deg,
+          #f0f0f0 25%,
+          #e0e0e0 50%,
+          #f0f0f0 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 2s infinite;
+        border-radius: 8px;
+      }
+
+      .dark .skeleton {
+        background: linear-gradient(
+          90deg,
+          #374151 25%,
+          #4b5563 50%,
+          #374151 75%
+        );
+        background-size: 200% 100%;
+      }
+
+      /* Price Slider */
+      .price-slider {
+        background: linear-gradient(90deg, #e5e7eb 0%, #5d5cde 100%);
+        height: 8px;
+        border-radius: 4px;
+        outline: none;
+        -webkit-appearance: none;
+        transition: all 0.3s ease;
+      }
+
+      .price-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #5d5cde, #764ba2);
+        cursor: pointer;
+        box-shadow: 0 6px 20px rgba(93, 92, 222, 0.4);
+        border: 4px solid white;
+        transition: all 0.3s ease;
+      }
+
+      .price-slider::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+        box-shadow: 0 8px 25px rgba(93, 92, 222, 0.6);
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(45deg, #5d5cde, #764ba2);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(45deg, #4f46e5, #667eea);
+      }
+
+      /* Notification Toast */
+      .toast {
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .toast.show {
+        transform: translateX(0);
+      }
+
+      /* Filter Chip Enhanced */
+      .filter-chip {
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        position: relative;
+      }
+
+      .filter-chip:hover {
+        transform: translateY(-4px) scale(1.02);
+      }
+
+      .filter-chip.active {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(93, 92, 222, 0.3);
+      }
+
+      /* Star Rating Animation */
+      .rating-stars {
+        background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        transition: all 0.3s ease;
+      }
+
+      .rating-stars:hover {
+        filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.6));
+        transform: scale(1.1);
+      }
+
+      /* Magnetic Effect */
+      .magnetic {
+        transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      /* Perspective Container */
+      .perspective-container {
+        perspective: 1000px;
+        transform-style: preserve-3d;
+      }
+
+      /* Loading Dots */
+      .loading-dots {
+        display: inline-block;
+      }
+
+      .loading-dots::after {
+        content: "";
+        animation: dots 1.5s linear infinite;
+      }
+
+      @keyframes dots {
+        0%,
+        20% {
+          content: "";
+        }
+        40% {
+          content: ".";
+        }
+        60% {
+          content: "..";
+        }
+        80%,
+        100% {
+          content: "...";
+        }
+      }
+
+      /* Parallax Background */
+      .parallax-bg {
+        background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.05;
+      }
+
+      .dark .parallax-bg {
+        opacity: 0.02;
+      }
+    </style>
+  </head>
+  <body
+    class="font-sans antialiased bg-gradient-to-br from-neutral-25 via-white to-primary-50 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-800 min-h-screen relative overflow-x-hidden"
+  >
+    <!-- Animated Background -->
+    <div class="parallax-bg"></div>
+
+    <!-- Floating Decoration Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+      <div
+        class="floating-element absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-primary-200 to-primary-300 dark:from-primary-800 dark:to-primary-900 rounded-full opacity-20 blur-xl"
+      ></div>
+      <div
+        class="floating-element absolute top-40 right-20 w-48 h-48 bg-gradient-to-br from-purple-200 to-pink-300 dark:from-purple-800 dark:to-pink-900 rounded-full opacity-15 blur-2xl"
+      ></div>
+      <div
+        class="floating-element absolute bottom-32 left-1/4 w-24 h-24 bg-gradient-to-br from-blue-200 to-cyan-300 dark:from-blue-800 dark:to-cyan-900 rounded-full opacity-25 blur-xl"
+      ></div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div
+      id="toastContainer"
+      class="fixed top-20 right-6 z-[100] space-y-3"
+    ></div>
+
+    <!-- AI Shopping Assistant -->
+    <div id="aiAssistant" class="fixed bottom-8 right-8 z-[200]">
+      <button
+        id="aiToggle"
+        class="w-16 h-16 bg-gradient-to-r from-primary-500 to-purple-600 rounded-full shadow-glow-lg hover:shadow-[0_0_30px_rgba(93,92,222,0.8)] flex items-center justify-center text-white transition-all duration-300 hover:scale-110 animate-bounce-gentle"
+      >
+        <i class="fas fa-robot text-2xl"></i>
+      </button>
+      <div
+        id="aiChat"
+        class="hidden absolute bottom-20 right-0 w-96 max-w-[90vw] bg-white dark:bg-neutral-900 rounded-3xl shadow-float-lg border-2 border-primary-200 dark:border-primary-800 overflow-hidden"
+      >
+        <div
+          class="bg-gradient-to-r from-primary-500 to-purple-600 p-6 text-white"
+        >
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <div
+                class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-robot text-lg"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg">LUXE Assistant</h3>
+                <p class="text-sm opacity-90">Intelligence artificielle</p>
+              </div>
+            </div>
+            <button
+              id="aiClose"
+              class="text-white/80 hover:text-white transition-colors"
+            >
+              <i class="fas fa-times text-xl"></i>
+            </button>
+          </div>
+        </div>
+        <div id="aiMessages" class="h-96 overflow-y-auto p-6 space-y-4">
+          <div class="ai-message flex items-start space-x-3">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-primary-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm"
+            >
+              <i class="fas fa-robot"></i>
+            </div>
+            <div
+              class="bg-neutral-100 dark:bg-neutral-800 rounded-2xl p-4 max-w-xs animate-fade-in"
+            >
+              <p class="text-sm">
+                👋 Bonjour ! Je suis votre assistant shopping intelligent.
+                Comment puis-je vous aider aujourd'hui ?
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 border-t border-neutral-200 dark:border-neutral-700">
+          <div class="flex space-x-3">
+            <input
+              type="text"
+              id="aiInput"
+              placeholder="Posez-moi une question..."
+              class="flex-1 px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-2xl bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white placeholder-neutral-500 dark:placeholder-neutral-400 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all text-base"
+            />
+            <button
+              id="aiSend"
+              class="px-6 py-3 bg-gradient-to-r from-primary-500 to-purple-600 text-white rounded-2xl hover:from-primary-600 hover:to-purple-700 transition-all shadow-glow hover:scale-105"
+            >
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <button
+              class="ai-suggestion text-xs bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 px-3 py-1.5 rounded-full hover:bg-primary-100 dark:hover:bg-primary-900/50 transition-colors"
+            >
+              Recommandations
+            </button>
+            <button
+              class="ai-suggestion text-xs bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 px-3 py-1.5 rounded-full hover:bg-primary-100 dark:hover:bg-primary-900/50 transition-colors"
+            >
+              Comparaisons
+            </button>
+            <button
+              class="ai-suggestion text-xs bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 px-3 py-1.5 rounded-full hover:bg-primary-100 dark:hover:bg-primary-900/50 transition-colors"
+            >
+              Tendances
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Neural Network Background -->
+    <canvas
+      id="neuralCanvas"
+      class="fixed inset-0 pointer-events-none z-[-1] opacity-30 dark:opacity-20"
+    ></canvas>
+
+    <!-- Voice Search Modal -->
+    <div
+      id="voiceModal"
+      class="fixed inset-0 z-[999] hidden bg-black/50 backdrop-blur-sm flex items-center justify-center"
+    >
+      <div
+        class="bg-white dark:bg-neutral-900 rounded-3xl p-12 shadow-float-lg max-w-md w-full mx-4 text-center"
+      >
+        <div class="relative mb-8">
+          <div
+            id="voiceAnimation"
+            class="w-32 h-32 mx-auto bg-gradient-to-r from-primary-500 to-purple-600 rounded-full flex items-center justify-center relative"
+          >
+            <i class="fas fa-microphone text-white text-4xl"></i>
+            <div
+              class="absolute inset-0 rounded-full border-4 border-primary-300 animate-ping"
+            ></div>
+            <div
+              class="absolute inset-4 rounded-full border-2 border-primary-400 animate-pulse"
+            ></div>
+          </div>
+        </div>
+        <h3 class="text-2xl font-bold text-neutral-900 dark:text-white mb-4">
+          Recherche vocale
+        </h3>
+        <p class="text-neutral-600 dark:text-neutral-400 mb-8">
+          Dites ce que vous cherchez...
+        </p>
+        <button
+          id="voiceStop"
+          class="px-8 py-3 bg-red-500 text-white rounded-2xl hover:bg-red-600 transition-all"
+        >
+          <i class="fas fa-stop mr-2"></i>
+          Arrêter
+        </button>
+      </div>
+    </div>
+
+    <!-- AR Product Viewer -->
+    <div
+      id="arViewer"
+      class="fixed inset-0 z-[999] hidden bg-black/90 backdrop-blur-sm"
+    >
+      <div
+        class="absolute inset-4 bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-3xl overflow-hidden"
+      >
+        <div
+          class="absolute top-6 left-6 right-6 flex items-center justify-between z-10"
+        >
+          <h3 class="text-white text-2xl font-bold">Vue AR</h3>
+          <button
+            id="arClose"
+            class="text-white/80 hover:text-white transition-colors"
+          >
+            <i class="fas fa-times text-2xl"></i>
+          </button>
+        </div>
+        <div
+          id="arContent"
+          class="w-full h-full flex items-center justify-center"
+        >
+          <div class="text-center text-white">
+            <div
+              class="w-48 h-48 mx-auto bg-gradient-to-r from-primary-500 to-purple-600 rounded-3xl flex items-center justify-center mb-6 animate-float"
+            >
+              <i class="fas fa-cube text-6xl"></i>
+            </div>
+            <h4 class="text-2xl font-bold mb-2">Expérience AR Simulée</h4>
+            <p class="text-neutral-300 max-w-md mx-auto">
+              Découvrez le produit dans votre espace avec notre technologie de
+              réalité augmentée avancée.
+            </p>
+          </div>
+        </div>
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+          <div class="flex space-x-4">
+            <button
+              class="px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-2xl hover:bg-white/30 transition-all"
+            >
+              <i class="fas fa-rotate-3d mr-2"></i>
+              Rotation
+            </button>
+            <button
+              class="px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-2xl hover:bg-white/30 transition-all"
+            >
+              <i class="fas fa-expand-arrows-alt mr-2"></i>
+              Taille
+            </button>
+            <button
+              class="px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-2xl hover:bg-white/30 transition-all"
+            >
+              <i class="fas fa-camera mr-2"></i>
+              Photo
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Smart Recommendations Bar -->
+    <div
+      id="smartRecommendations"
+      class="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-primary-500 to-purple-600 text-white p-4 transform translate-y-full transition-transform duration-500 z-40"
+    >
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-brain text-xl"></i>
+            <span class="font-semibold">IA Recommande:</span>
+          </div>
+          <div id="recommendationText" class="font-medium">
+            Basé sur votre navigation, vous pourriez aimer...
+          </div>
+        </div>
+        <div class="flex items-center space-x-3">
+          <button
+            id="viewRecommendations"
+            class="px-6 py-2 bg-white/20 backdrop-blur-sm rounded-xl hover:bg-white/30 transition-all"
+          >
+            Voir
+          </button>
+          <button
+            id="dismissRecommendations"
+            class="text-white/80 hover:text-white transition-colors"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header
+      class="glass-card sticky top-0 z-50 shadow-float animate-slide-down"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center space-x-8">
+            <div class="flex items-center group">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center shadow-glow group-hover:shadow-glow-lg transition-all duration-500 group-hover:rotate-12 group-hover:scale-110"
+              >
+                <i class="fas fa-gem text-white text-xl animate-float"></i>
+              </div>
+              <h1
+                class="ml-4 text-3xl font-black bg-gradient-to-r from-neutral-900 via-primary-600 to-neutral-600 dark:from-white dark:via-primary-400 dark:to-neutral-300 bg-clip-text text-transparent animate-glow-pulse"
+              >
+                LUXE Store
+              </h1>
+            </div>
+
+            <!-- Enhanced Breadcrumb -->
+            <nav class="hidden md:flex items-center space-x-3 text-sm">
+              <a
+                href="#"
+                class="text-neutral-500 dark:text-neutral-400 hover:text-primary-500 transition-all duration-300 hover:scale-110 interactive-element px-3 py-1 rounded-lg"
+                >Accueil</a
+              >
+              <i
+                class="fas fa-chevron-right text-xs text-neutral-300 dark:text-neutral-600"
+              ></i>
+              <span
+                class="text-neutral-700 dark:text-neutral-300 font-semibold bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-lg"
+                >Produits</span
+              >
+            </nav>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <!-- Enhanced Search Bar -->
+            <div class="relative hidden sm:block group">
+              <div
+                class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+              >
+                <i
+                  class="fas fa-search text-neutral-400 group-focus-within:text-primary-500 transition-colors"
+                ></i>
+              </div>
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Rechercher des produits magiques..."
+                class="block w-96 pl-12 pr-4 py-3 text-base border-2 border-transparent bg-white/80 dark:bg-neutral-800/80 backdrop-blur-sm rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:bg-white dark:focus:bg-neutral-800 text-neutral-900 dark:text-white placeholder-neutral-500 dark:placeholder-neutral-400 transition-all duration-300 hover:shadow-glow focus:shadow-glow-lg"
+              />
+            </div>
+
+            <!-- Enhanced Action Buttons -->
+            <div class="flex items-center space-x-2">
+              <button
+                class="magnetic morph-button p-3 text-neutral-600 dark:text-neutral-400 hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-2xl transition-all duration-300 hover:scale-110 hover:rotate-6"
+              >
+                <i class="fas fa-heart"></i>
+              </button>
+              <button
+                class="magnetic morph-button relative p-3 text-neutral-600 dark:text-neutral-400 hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-2xl transition-all duration-300 hover:scale-110"
+              >
+                <i class="fas fa-shopping-bag"></i>
+                <span
+                  class="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-r from-primary-500 to-primary-600 text-white text-xs rounded-full flex items-center justify-center animate-bounce-gentle shadow-glow"
+                  >3</span
+                >
+              </button>
+              <button
+                class="magnetic morph-button p-3 text-neutral-600 dark:text-neutral-400 hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-2xl transition-all duration-300 hover:scale-110 hover:-rotate-6"
+              >
+                <i class="fas fa-user-circle text-xl"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+      <!-- Enhanced Page Header -->
+      <div class="mb-12 text-center animate-fade-in">
+        <div class="max-w-3xl mx-auto">
+          <h2
+            class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-neutral-900 via-primary-600 to-purple-600 dark:from-white dark:via-primary-400 dark:to-purple-400 mb-6 animate-slide-up"
+          >
+            Collection Premium
+          </h2>
+          <p
+            class="text-xl text-neutral-600 dark:text-neutral-400 mb-8 animate-slide-up"
+            style="animation-delay: 0.2s"
+          >
+            Découvrez notre sélection de produits d'exception, soigneusement
+            choisis pour vous
+          </p>
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6"
+          >
+            <span
+              id="productCount"
+              class="inline-flex items-center px-6 py-3 rounded-2xl text-lg font-semibold bg-gradient-to-r from-primary-100 to-primary-200 dark:from-primary-900/30 dark:to-primary-800/30 text-primary-700 dark:text-primary-300 shadow-inner-glow animate-elastic"
+              style="animation-delay: 0.4s"
+            >
+              <i class="fas fa-box mr-3 text-xl"></i>
+              8 produits magiques
+            </span>
+            <div
+              class="flex items-center space-x-2 text-sm text-neutral-500 dark:text-neutral-400 animate-fade-in"
+              style="animation-delay: 0.6s"
+            >
+              <div
+                class="w-2 h-2 bg-green-500 rounded-full animate-pulse"
+              ></div>
+              <span>Mise à jour en temps réel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col xl:flex-row gap-12">
+        <!-- Enhanced Filters Sidebar -->
+        <aside class="xl:w-96 animate-slide-in-left">
+          <div
+            class="glass-card rounded-3xl p-8 shadow-float sticky top-32 border-2 border-primary-100 dark:border-primary-900/30"
+          >
+            <div class="flex items-center justify-between mb-8">
+              <h3
+                class="text-2xl font-bold text-neutral-900 dark:text-white flex items-center"
+              >
+                <i class="fas fa-filter mr-3 text-primary-500"></i>
+                Filtres
+              </h3>
+              <button
+                id="clearFilters"
+                class="morph-button text-sm text-primary-500 hover:text-primary-700 font-semibold px-4 py-2 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-300"
+              >
+                <i class="fas fa-times mr-2"></i>
+                Effacer
+              </button>
+            </div>
+
+            <!-- Enhanced Categories -->
+            <div class="mb-10">
+              <h4
+                class="text-sm font-bold text-neutral-700 dark:text-neutral-300 mb-6 uppercase tracking-wider flex items-center"
+              >
+                <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
+                Catégories
+              </h4>
+              <div class="space-y-4">
+                <label class="group cursor-pointer block">
+                  <input
+                    type="checkbox"
+                    class="sr-only peer"
+                    data-filter="category"
+                    value="electronique"
+                  />
+                  <div
+                    class="filter-chip interactive-element flex items-center justify-between p-4 rounded-2xl border-2 border-neutral-200 dark:border-neutral-700 peer-checked:border-primary-500 peer-checked:bg-gradient-to-r peer-checked:from-primary-50 peer-checked:to-primary-100 dark:peer-checked:from-primary-900/20 dark:peer-checked:to-primary-800/20 hover:border-primary-300 transition-all duration-300 hover:shadow-glow"
+                  >
+                    <div class="flex items-center">
+                      <div
+                        class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform"
+                      >
+                        <i
+                          class="fas fa-laptop text-blue-600 dark:text-blue-400 text-lg"
+                        ></i>
+                      </div>
+                      <span
+                        class="font-semibold text-neutral-700 dark:text-neutral-300 peer-checked:text-primary-700 dark:peer-checked:text-primary-300"
+                        >Électronique</span
+                      >
+                    </div>
+                    <span
+                      class="text-sm bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 px-3 py-1 rounded-full font-medium"
+                      >3</span
+                    >
+                  </div>
+                </label>
+
+                <label class="group cursor-pointer block">
+                  <input
+                    type="checkbox"
+                    class="sr-only peer"
+                    data-filter="category"
+                    value="vetements"
+                  />
+                  <div
+                    class="filter-chip interactive-element flex items-center justify-between p-4 rounded-2xl border-2 border-neutral-200 dark:border-neutral-700 peer-checked:border-primary-500 peer-checked:bg-gradient-to-r peer-checked:from-primary-50 peer-checked:to-primary-100 dark:peer-checked:from-primary-900/20 dark:peer-checked:to-primary-800/20 hover:border-primary-300 transition-all duration-300 hover:shadow-glow"
+                  >
+                    <div class="flex items-center">
+                      <div
+                        class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900/30 dark:to-purple-800/30 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform"
+                      >
+                        <i
+                          class="fas fa-tshirt text-purple-600 dark:text-purple-400 text-lg"
+                        ></i>
+                      </div>
+                      <span
+                        class="font-semibold text-neutral-700 dark:text-neutral-300"
+                        >Vêtements</span
+                      >
+                    </div>
+                    <span
+                      class="text-sm bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 px-3 py-1 rounded-full font-medium"
+                      >2</span
+                    >
+                  </div>
+                </label>
+
+                <label class="group cursor-pointer block">
+                  <input
+                    type="checkbox"
+                    class="sr-only peer"
+                    data-filter="category"
+                    value="maison"
+                  />
+                  <div
+                    class="filter-chip interactive-element flex items-center justify-between p-4 rounded-2xl border-2 border-neutral-200 dark:border-neutral-700 peer-checked:border-primary-500 peer-checked:bg-gradient-to-r peer-checked:from-primary-50 peer-checked:to-primary-100 dark:peer-checked:from-primary-900/20 dark:peer-checked:to-primary-800/20 hover:border-primary-300 transition-all duration-300 hover:shadow-glow"
+                  >
+                    <div class="flex items-center">
+                      <div
+                        class="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-100 to-green-200 dark:from-green-900/30 dark:to-green-800/30 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform"
+                      >
+                        <i
+                          class="fas fa-home text-green-600 dark:text-green-400 text-lg"
+                        ></i>
+                      </div>
+                      <span
+                        class="font-semibold text-neutral-700 dark:text-neutral-300"
+                        >Maison</span
+                      >
+                    </div>
+                    <span
+                      class="text-sm bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 px-3 py-1 rounded-full font-medium"
+                      >1</span
+                    >
+                  </div>
+                </label>
+
+                <label class="group cursor-pointer block">
+                  <input
+                    type="checkbox"
+                    class="sr-only peer"
+                    data-filter="category"
+                    value="sport"
+                  />
+                  <div
+                    class="filter-chip interactive-element flex items-center justify-between p-4 rounded-2xl border-2 border-neutral-200 dark:border-neutral-700 peer-checked:border-primary-500 peer-checked:bg-gradient-to-r peer-checked:from-primary-50 peer-checked:to-primary-100 dark:peer-checked:from-primary-900/20 dark:peer-checked:to-primary-800/20 hover:border-primary-300 transition-all duration-300 hover:shadow-glow"
+                  >
+                    <div class="flex items-center">
+                      <div
+                        class="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/30 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform"
+                      >
+                        <i
+                          class="fas fa-dumbbell text-orange-600 dark:text-orange-400 text-lg"
+                        ></i>
+                      </div>
+                      <span
+                        class="font-semibold text-neutral-700 dark:text-neutral-300"
+                        >Sport</span
+                      >
+                    </div>
+                    <span
+                      class="text-sm bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 px-3 py-1 rounded-full font-medium"
+                      >2</span
+                    >
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Enhanced Price Range -->
+            <div class="mb-10">
+              <h4
+                class="text-sm font-bold text-neutral-700 dark:text-neutral-300 mb-6 uppercase tracking-wider flex items-center"
+              >
+                <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
+                Gamme de prix
+              </h4>
+              <div class="space-y-6">
+                <div
+                  class="flex items-center justify-between text-lg font-semibold"
+                >
+                  <span class="text-neutral-600 dark:text-neutral-400">0€</span>
+                  <div
+                    class="px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl shadow-glow"
+                  >
+                    <span id="maxPriceDisplay">1500€</span>
+                  </div>
+                </div>
+                <div class="relative">
+                  <input
+                    type="range"
+                    id="priceRange"
+                    min="0"
+                    max="1500"
+                    value="1500"
+                    class="price-slider w-full cursor-pointer"
+                  />
+                  <div
+                    class="flex justify-between text-xs text-neutral-500 dark:text-neutral-400 mt-2"
+                  >
+                    <span>Budget</span>
+                    <span>Premium</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Enhanced Brands -->
+            <div class="mb-10">
+              <h4
+                class="text-sm font-bold text-neutral-700 dark:text-neutral-300 mb-6 uppercase tracking-wider flex items-center"
+              >
+                <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
+                Marques
+              </h4>
+              <div class="space-y-3">
+                <label
+                  class="flex items-center justify-between cursor-pointer group p-3 rounded-xl hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-all"
+                >
+                  <div class="flex items-center">
+                    <input
+                      type="checkbox"
+                      class="sr-only peer"
+                      data-filter="brand"
+                      value="apple"
+                    />
+                    <div
+                      class="w-5 h-5 border-2 border-neutral-300 dark:border-neutral-600 rounded-lg peer-checked:border-primary-500 peer-checked:bg-primary-500 flex items-center justify-center transition-all group-hover:scale-110"
+                    >
+                      <i
+                        class="fas fa-check text-white text-xs opacity-0 peer-checked:opacity-100"
+                      ></i>
+                    </div>
+                    <span
+                      class="ml-4 font-medium text-neutral-700 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors"
+                      >Apple</span
+                    >
+                  </div>
+                  <span
+                    class="text-xs text-neutral-400 bg-neutral-100 dark:bg-neutral-800 px-2 py-1 rounded-full"
+                    >(2)</span
+                  >
+                </label>
+
+                <label
+                  class="flex items-center justify-between cursor-pointer group p-3 rounded-xl hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-all"
+                >
+                  <div class="flex items-center">
+                    <input
+                      type="checkbox"
+                      class="sr-only peer"
+                      data-filter="brand"
+                      value="samsung"
+                    />
+                    <div
+                      class="w-5 h-5 border-2 border-neutral-300 dark:border-neutral-600 rounded-lg peer-checked:border-primary-500 peer-checked:bg-primary-500 flex items-center justify-center transition-all group-hover:scale-110"
+                    >
+                      <i
+                        class="fas fa-check text-white text-xs opacity-0 peer-checked:opacity-100"
+                      ></i>
+                    </div>
+                    <span
+                      class="ml-4 font-medium text-neutral-700 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors"
+                      >Samsung</span
+                    >
+                  </div>
+                  <span
+                    class="text-xs text-neutral-400 bg-neutral-100 dark:bg-neutral-800 px-2 py-1 rounded-full"
+                    >(1)</span
+                  >
+                </label>
+
+                <label
+                  class="flex items-center justify-between cursor-pointer group p-3 rounded-xl hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-all"
+                >
+                  <div class="flex items-center">
+                    <input
+                      type="checkbox"
+                      class="sr-only peer"
+                      data-filter="brand"
+                      value="nike"
+                    />
+                    <div
+                      class="w-5 h-5 border-2 border-neutral-300 dark:border-neutral-600 rounded-lg peer-checked:border-primary-500 peer-checked:bg-primary-500 flex items-center justify-center transition-all group-hover:scale-110"
+                    >
+                      <i
+                        class="fas fa-check text-white text-xs opacity-0 peer-checked:opacity-100"
+                      ></i>
+                    </div>
+                    <span
+                      class="ml-4 font-medium text-neutral-700 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors"
+                      >Nike</span
+                    >
+                  </div>
+                  <span
+                    class="text-xs text-neutral-400 bg-neutral-100 dark:bg-neutral-800 px-2 py-1 rounded-full"
+                    >(2)</span
+                  >
+                </label>
+              </div>
+            </div>
+
+            <!-- Enhanced Rating Filter -->
+            <div>
+              <h4
+                class="text-sm font-bold text-neutral-700 dark:text-neutral-300 mb-6 uppercase tracking-wider flex items-center"
+              >
+                <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
+                Évaluation
+              </h4>
+              <div class="space-y-3">
+                <label class="flex items-center cursor-pointer group">
+                  <input
+                    type="radio"
+                    name="rating"
+                    value="4"
+                    class="sr-only peer"
+                  />
+                  <div
+                    class="flex items-center p-3 rounded-xl hover:bg-neutral-50 dark:hover:bg-neutral-800/50 peer-checked:bg-gradient-to-r peer-checked:from-primary-50 peer-checked:to-primary-100 dark:peer-checked:from-primary-900/20 dark:peer-checked:to-primary-800/20 transition-all w-full group-hover:scale-105"
+                  >
+                    <div class="rating-stars text-2xl mr-3">★★★★☆</div>
+                    <span
+                      class="text-sm font-medium text-neutral-600 dark:text-neutral-400"
+                      >4+ étoiles</span
+                    >
+                  </div>
+                </label>
+                <label class="flex items-center cursor-pointer group">
+                  <input
+                    type="radio"
+                    name="rating"
+                    value="3"
+                    class="sr-only peer"
+                  />
+                  <div
+                    class="flex items-center p-3 rounded-xl hover:bg-neutral-50 dark:hover:bg-neutral-800/50 peer-checked:bg-gradient-to-r peer-checked:from-primary-50 peer-checked:to-primary-100 dark:peer-checked:from-primary-900/20 dark:peer-checked:to-primary-800/20 transition-all w-full group-hover:scale-105"
+                  >
+                    <div class="rating-stars text-2xl mr-3">★★★☆☆</div>
+                    <span
+                      class="text-sm font-medium text-neutral-600 dark:text-neutral-400"
+                      >3+ étoiles</span
+                    >
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 animate-slide-in-right">
+          <!-- Enhanced Toolbar -->
+          <div
+            class="glass-card rounded-3xl p-6 mb-8 shadow-float border-2 border-primary-100 dark:border-primary-900/30"
+          >
+            <div
+              class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6"
+            >
+              <div
+                class="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-6"
+              >
+                <div class="flex items-center">
+                  <label
+                    class="text-sm font-bold text-neutral-700 dark:text-neutral-300 mr-4 flex items-center"
+                  >
+                    <i class="fas fa-sort mr-2 text-primary-500"></i>
+                    Trier par:
+                  </label>
+                  <select
+                    id="sortSelect"
+                    class="bg-white dark:bg-neutral-800 border-2 border-neutral-200 dark:border-neutral-700 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all hover:shadow-glow cursor-pointer"
+                  >
+                    <option value="featured">✨ Mis en avant</option>
+                    <option value="price-asc">💰 Prix croissant</option>
+                    <option value="price-desc">💎 Prix décroissant</option>
+                    <option value="rating">⭐ Mieux notés</option>
+                    <option value="newest">🆕 Nouveautés</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-4">
+                <span
+                  class="text-sm font-medium text-neutral-600 dark:text-neutral-400 flex items-center"
+                >
+                  <i class="fas fa-eye mr-2"></i>
+                  Affichage:
+                </span>
+                <div
+                  class="flex bg-neutral-100 dark:bg-neutral-800 rounded-xl p-1 shadow-inner"
+                >
+                  <button
+                    id="gridView"
+                    class="morph-button px-4 py-2.5 text-sm rounded-lg bg-white dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 shadow-sm transition-all hover:scale-105"
+                  >
+                    <i class="fas fa-th-large mr-2"></i>
+                    Grille
+                  </button>
+                  <button
+                    id="listView"
+                    class="morph-button px-4 py-2.5 text-sm rounded-lg text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 transition-all hover:scale-105"
+                  >
+                    <i class="fas fa-list mr-2"></i>
+                    Liste
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enhanced Products Grid -->
+          <div
+            id="productsContainer"
+            class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8"
+          >
+            <!-- Products will be inserted here -->
+          </div>
+
+          <!-- Enhanced Empty State -->
+          <div id="emptyState" class="hidden text-center py-20 animate-zoom-in">
+            <div
+              class="glass-card rounded-3xl p-16 shadow-float max-w-lg mx-auto border-2 border-dashed border-primary-200 dark:border-primary-800"
+            >
+              <div
+                class="w-32 h-32 mx-auto mb-8 bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-700 rounded-full flex items-center justify-center animate-bounce-gentle"
+              >
+                <i
+                  class="fas fa-search text-4xl text-neutral-400 animate-wiggle"
+                ></i>
+              </div>
+              <h3
+                class="text-2xl font-bold text-neutral-900 dark:text-white mb-4"
+              >
+                Aucun produit trouvé
+              </h3>
+              <p class="text-neutral-600 dark:text-neutral-400 mb-8 text-lg">
+                Essayez de modifier vos filtres ou votre recherche pour
+                découvrir nos merveilles
+              </p>
+              <button
+                id="resetFiltersBtn"
+                class="morph-button ripple inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-2xl hover:from-primary-600 hover:to-primary-700 transition-all duration-300 shadow-glow hover:shadow-glow-lg hover:scale-105"
+              >
+                <i class="fas fa-redo mr-3"></i>
+                Réinitialiser les filtres
+              </button>
+            </div>
+          </div>
+
+          <!-- Enhanced Loading State -->
+          <div
+            id="loadingState"
+            class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8"
+          >
+            <!-- Loading skeletons will be inserted here -->
+          </div>
+
+          <!-- Enhanced Pagination -->
+          <div class="mt-16 flex justify-center animate-fade-in">
+            <nav
+              class="flex items-center space-x-3 bg-white dark:bg-neutral-800 rounded-2xl p-2 shadow-float"
+            >
+              <button
+                class="morph-button px-4 py-3 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 transition-all hover:scale-110 rounded-xl"
+              >
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button
+                class="morph-button px-5 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl font-semibold shadow-glow hover:shadow-glow-lg transition-all hover:scale-105"
+              >
+                1
+              </button>
+              <button
+                class="morph-button px-5 py-3 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-xl transition-all hover:scale-105"
+              >
+                2
+              </button>
+              <button
+                class="morph-button px-5 py-3 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-xl transition-all hover:scale-105"
+              >
+                3
+              </button>
+              <span class="px-3 text-neutral-400">...</span>
+              <button
+                class="morph-button px-5 py-3 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-xl transition-all hover:scale-105"
+              >
+                12
+              </button>
+              <button
+                class="morph-button px-4 py-3 text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 transition-all hover:scale-110 rounded-xl"
+              >
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </nav>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Quick Preview Modal -->
+    <div id="quickPreviewModal" class="fixed inset-0 z-[999] hidden">
+      <div
+        class="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        onclick="closeQuickPreview()"
+      ></div>
+      <div
+        class="absolute inset-4 md:inset-8 lg:inset-16 bg-white dark:bg-neutral-900 rounded-3xl shadow-float-lg overflow-hidden"
+      >
+        <div class="h-full flex flex-col">
+          <div
+            class="flex items-center justify-between p-6 border-b border-neutral-200 dark:border-neutral-700"
+          >
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-white">
+              Aperçu rapide
+            </h3>
+            <button
+              onclick="closeQuickPreview()"
+              class="morph-button p-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-xl transition-all"
+            >
+              <i class="fas fa-times text-xl"></i>
+            </button>
+          </div>
+          <div id="quickPreviewContent" class="flex-1 p-6 overflow-auto">
+            <!-- Preview content will be inserted here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-16 relative z-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Company Info -->
+          <div class="animate-slide-in-left">
+            <div class="flex items-center mb-6">
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center shadow-glow mr-3"
+              >
+                <i class="fas fa-gem text-white"></i>
+              </div>
+              <h3 class="text-2xl font-black gradient-text">LUXE Store</h3>
+            </div>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              La boutique du futur qui révolutionne votre expérience shopping
+              avec l'intelligence artificielle et la réalité augmentée.
+            </p>
+            <div class="flex space-x-4">
+              <button
+                class="w-10 h-10 bg-gray-800 hover:bg-primary-500 rounded-lg flex items-center justify-center transition-all hover:scale-110"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </button>
+              <button
+                class="w-10 h-10 bg-gray-800 hover:bg-primary-500 rounded-lg flex items-center justify-center transition-all hover:scale-110"
+              >
+                <i class="fab fa-twitter"></i>
+              </button>
+              <button
+                class="w-10 h-10 bg-gray-800 hover:bg-primary-500 rounded-lg flex items-center justify-center transition-all hover:scale-110"
+              >
+                <i class="fab fa-instagram"></i>
+              </button>
+              <button
+                class="w-10 h-10 bg-gray-800 hover:bg-primary-500 rounded-lg flex items-center justify-center transition-all hover:scale-110"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="animate-fade-in" style="animation-delay: 0.1s">
+            <h4 class="text-lg font-bold mb-6">Liens rapides</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >À propos</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Produits</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Collections</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Nouveautés</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Promotions</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div class="animate-fade-in" style="animation-delay: 0.2s">
+            <h4 class="text-lg font-bold mb-6">Support</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Centre d'aide</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Livraison</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Retours</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Garantie</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div class="animate-slide-in-right">
+            <h4 class="text-lg font-bold mb-6">Contact</h4>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <i class="fas fa-map-marker-alt text-primary-500 mr-3"></i>
+                <span class="text-gray-400"
+                  >123 Rue de l'Innovation, 75001 Paris</span
+                >
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-phone text-primary-500 mr-3"></i>
+                <span class="text-gray-400">+33 1 23 45 67 89</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-envelope text-primary-500 mr-3"></i>
+                <span class="text-gray-400">contact@luxestore.com</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-clock text-primary-500 mr-3"></i>
+                <span class="text-gray-400">Support 24/7</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm">
+            © 2024 LUXE Store. Tous droits réservés.
+          </p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white text-sm transition-colors"
+              >Mentions légales</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white text-sm transition-colors"
+              >Confidentialité</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white text-sm transition-colors"
+              >CGV</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Enhanced dark mode detection
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        document.documentElement.classList.add("dark");
+      }
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (event) => {
+          if (event.matches) {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
+        });
+
+      // Enhanced products data
+      const products = [
+        {
+          id: 1,
+          name: "iPhone 15 Pro Max",
+          price: 1299,
+          originalPrice: 1399,
+          category: "electronique",
+          brand: "apple",
+          rating: 4.9,
+          reviews: 1247,
+          image:
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad1)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='40%25' font-size='20' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3EiPhone 15 Pro Max%3C/text%3E%3Ctext x='50%25' y='65%25' font-size='60' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif'%3E📱%3C/text%3E%3Ctext x='50%25' y='85%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(255,255,255,0.8)' font-family='Arial, sans-serif'%3EPremium%3C/text%3E%3C/svg%3E",
+          description:
+            "Le smartphone le plus avancé d'Apple avec puce A17 Pro et caméra 48MP révolutionnaire",
+          badges: ["Nouveau", "Premium", "Intelligence"],
+          inStock: true,
+          fastDelivery: true,
+          features: ["Puce A17 Pro", "Caméra 48MP", "USB-C", "Action Button"],
+        },
+        {
+          id: 2,
+          name: "Galaxy S24 Ultra",
+          price: 1199,
+          originalPrice: null,
+          category: "electronique",
+          brand: "samsung",
+          rating: 4.7,
+          reviews: 892,
+          image:
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234facfe;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2300f2fe;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad2)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='40%25' font-size='20' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3EGalaxy S24 Ultra%3C/text%3E%3Ctext x='50%25' y='65%25' font-size='60' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif'%3E📱%3C/text%3E%3Ctext x='50%25' y='85%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(255,255,255,0.8)' font-family='Arial, sans-serif'%3ES Pen%3C/text%3E%3C/svg%3E",
+          description:
+            "Smartphone premium avec S Pen intégré, zoom 100x et intelligence artificielle avancée",
+          badges: ["S Pen", "100x Zoom", "AI"],
+          inStock: true,
+          fastDelivery: true,
+          features: ["S Pen", "Zoom 100x", "AI Galaxy", 'Écran 6.8"'],
+        },
+        {
+          id: 3,
+          name: "MacBook Pro M3 Max",
+          price: 2499,
+          originalPrice: 2699,
+          category: "electronique",
+          brand: "apple",
+          rating: 4.8,
+          reviews: 634,
+          image:
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f093fb;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23f5576c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad3)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='35%25' font-size='18' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3EMacBook Pro%3C/text%3E%3Ctext x='50%25' y='45%25' font-size='18' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3EM3 Max%3C/text%3E%3Ctext x='50%25' y='70%25' font-size='60' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif'%3E💻%3C/text%3E%3Ctext x='50%25' y='90%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(255,255,255,0.8)' font-family='Arial, sans-serif'%3EPromo%3C/text%3E%3C/svg%3E",
+          description:
+            "Ordinateur portable professionnel avec performances exceptionnelles pour créateurs et développeurs",
+          badges: ["Pro", "Promo", "Performance"],
+          inStock: true,
+          fastDelivery: false,
+          features: [
+            "Puce M3 Max",
+            '16" Liquid Retina XDR',
+            "22h autonomie",
+            "Thunderbolt 4",
+          ],
+        },
+        {
+          id: 4,
+          name: "Nike Air Jordan 1 Retro",
+          price: 179,
+          originalPrice: 199,
+          category: "sport",
+          brand: "nike",
+          rating: 4.6,
+          reviews: 2156,
+          image:
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad4' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff9a9e;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23fecfef;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad4)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='35%25' font-size='18' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3ENike Air Jordan 1%3C/text%3E%3Ctext x='50%25' y='45%25' font-size='18' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3ERetro%3C/text%3E%3Ctext x='50%25' y='70%25' font-size='60' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif'%3E👟%3C/text%3E%3Ctext x='50%25' y='90%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(255,255,255,0.8)' font-family='Arial, sans-serif'%3EIconique%3C/text%3E%3C/svg%3E",
+          description:
+            "Baskets iconiques au design intemporel et confort optimal pour le style et la performance",
+          badges: ["Iconique", "Promo", "Heritage"],
+          inStock: true,
+          fastDelivery: true,
+          features: [
+            "Design original",
+            "Cuir premium",
+            "Semelle Air",
+            "Édition limitée",
+          ],
+        },
+        {
+          id: 5,
+          name: "Collection T-shirt Premium",
+          price: 89,
+          originalPrice: null,
+          category: "vetements",
+          brand: "nike",
+          rating: 4.4,
+          reviews: 743,
+          image:
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad5' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23a8edea;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23fed6e3;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad5)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='35%25' font-size='16' text-anchor='middle' dy='.3em' fill='%23333' font-family='Arial, sans-serif' font-weight='bold'%3ECollection T-shirt%3C/text%3E%3Ctext x='50%25' y='45%25' font-size='16' text-anchor='middle' dy='.3em' fill='%23333' font-family='Arial, sans-serif' font-weight='bold'%3EPremium%3C/text%3E%3Ctext x='50%25' y='70%25' font-size='60' text-anchor='middle' dy='.3em' fill='%23333' font-family='Arial, sans-serif'%3E👕%3C/text%3E%3Ctext x='50%25' y='90%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(51,51,51,0.8)' font-family='Arial, sans-serif'%3EBio%3C/text%3E%3C/svg%3E",
+          description:
+            "Collection de t-shirts en coton bio de qualité supérieure, design moderne et éthique",
+          badges: ["Bio", "Collection", "Éthique"],
+          inStock: true,
+          fastDelivery: true,
+          features: [
+            "Coton bio",
+            "Coupe moderne",
+            "Teinture écologique",
+            "Pack de 3",
+          ],
+        },
+        {
+          id: 6,
+          name: "Lampe Design Scandinave",
+          price: 159,
+          originalPrice: 189,
+          category: "maison",
+          brand: "ikea",
+          rating: 4.3,
+          reviews: 428,
+          image:
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad6' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ffecd2;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23fcb69f;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad6)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='35%25' font-size='18' text-anchor='middle' dy='.3em' fill='%23333' font-family='Arial, sans-serif' font-weight='bold'%3ELampe Design%3C/text%3E%3Ctext x='50%25' y='45%25' font-size='18' text-anchor='middle' dy='.3em' fill='%23333' font-family='Arial, sans-serif' font-weight='bold'%3EScandinave%3C/text%3E%3Ctext x='50%25' y='70%25' font-size='60' text-anchor='middle' dy='.3em' fill='%23333' font-family='Arial, sans-serif'%3E💡%3C/text%3E%3Ctext x='50%25' y='90%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(51,51,51,0.8)' font-family='Arial, sans-serif'%3EPromo%3C/text%3E%3C/svg%3E",
+          description:
+            "Éclairage moderne au design épuré pour créer une ambiance chaleureuse dans votre intérieur",
+          badges: ["Design", "Promo", "Scandinave"],
+          inStock: false,
+          fastDelivery: false,
+          features: [
+            "LED intégrée",
+            "Variateur",
+            "Bois naturel",
+            "Design minimaliste",
+          ],
+        },
+        {
+          id: 7,
+          name: "Casque Gaming Pro X",
+          price: 299,
+          originalPrice: null,
+          category: "electronique",
+          brand: "logitech",
+          rating: 4.7,
+          reviews: 1834,
+          image:
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad7' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23434343;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23000000;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad7)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='35%25' font-size='18' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3ECasque Gaming%3C/text%3E%3Ctext x='50%25' y='45%25' font-size='18' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3EPro X%3C/text%3E%3Ctext x='50%25' y='70%25' font-size='60' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif'%3E🎧%3C/text%3E%3Ctext x='50%25' y='90%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(255,255,255,0.8)' font-family='Arial, sans-serif'%3EPro%3C/text%3E%3C/svg%3E",
+          description:
+            "Casque gaming professionnel avec son surround 7.1 et microphone Blue VO!CE",
+          badges: ["Gaming", "Pro", "Blue VO!CE"],
+          inStock: true,
+          fastDelivery: true,
+          features: ["Son 7.1", "Blue VO!CE", "RGB Lightsync", "Sans fil"],
+        },
+        {
+          id: 8,
+          name: "Ensemble Sportswear Elite",
+          price: 149,
+          originalPrice: 179,
+          category: "sport",
+          brand: "adidas",
+          rating: 4.5,
+          reviews: 967,
+          image:
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad8' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2343e97b;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2338f9d7;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad8)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='50%25' y='30%25' font-size='16' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3EEnsemble%3C/text%3E%3Ctext x='50%25' y='40%25' font-size='16' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3ESportswear%3C/text%3E%3Ctext x='50%25' y='50%25' font-size='16' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold'%3EElite%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='60' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif'%3E🏃%3C/text%3E%3Ctext x='50%25' y='92%25' font-size='14' text-anchor='middle' dy='.3em' fill='rgba(255,255,255,0.8)' font-family='Arial, sans-serif'%3ESet%3C/text%3E%3C/svg%3E",
+          description:
+            "Ensemble complet pour le sport et les loisirs avec technologie Climacool",
+          badges: ["Elite", "Promo", "Set", "Climacool"],
+          inStock: true,
+          fastDelivery: true,
+          features: [
+            "Climacool",
+            "Ensemble complet",
+            "Respirant",
+            "Anti-odeur",
+          ],
+        },
+      ];
+
+      let filteredProducts = [...products];
+      let currentView = "grid";
+      let isLoading = false;
+
+      // DOM elements
+      const productsContainer = document.getElementById("productsContainer");
+      const emptyState = document.getElementById("emptyState");
+      const loadingState = document.getElementById("loadingState");
+      const searchInput = document.getElementById("searchInput");
+      const sortSelect = document.getElementById("sortSelect");
+      const priceRange = document.getElementById("priceRange");
+      const maxPriceDisplay = document.getElementById("maxPriceDisplay");
+      const clearFilters = document.getElementById("clearFilters");
+      const gridView = document.getElementById("gridView");
+      const listView = document.getElementById("listView");
+      const productCount = document.getElementById("productCount");
+      const toastContainer = document.getElementById("toastContainer");
+
+      // Initialize with enhanced loading state
+      showLoadingState();
+      setTimeout(() => {
+        hideLoadingState();
+        renderProducts();
+        updateProductCount();
+        showToast("Produits chargés avec succès!", "success");
+      }, 2000);
+
+      // Event listeners
+      searchInput.addEventListener("input", debounce(filterProducts, 300));
+      sortSelect.addEventListener("change", sortAndRenderProducts);
+      priceRange.addEventListener("input", updatePriceDisplay);
+      priceRange.addEventListener("change", filterProducts);
+      clearFilters.addEventListener("click", clearAllFilters);
+      gridView.addEventListener("click", () => switchView("grid"));
+      listView.addEventListener("click", () => switchView("list"));
+
+      // Enhanced filter checkboxes
+      document.querySelectorAll("input[data-filter]").forEach((checkbox) => {
+        checkbox.addEventListener("change", function () {
+          const chip = this.closest(".filter-chip");
+          if (this.checked) {
+            chip.classList.add("active");
+            showToast(`Filtre "${this.value}" appliqué`, "info");
+          } else {
+            chip.classList.remove("active");
+          }
+          filterProducts();
+        });
+      });
+
+      // Rating filter
+      document.querySelectorAll('input[name="rating"]').forEach((radio) => {
+        radio.addEventListener("change", filterProducts);
+      });
+
+      // Magnetic effect for interactive elements
+      document.addEventListener("mousemove", function (e) {
+        document.querySelectorAll(".magnetic").forEach((element) => {
+          const rect = element.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          const distance = Math.sqrt(x * x + y * y);
+
+          if (distance < 100) {
+            const strength = (100 - distance) / 100;
+            element.style.transform = `translate(${x * strength * 0.2}px, ${
+              y * strength * 0.2
+            }px)`;
+          } else {
+            element.style.transform = "translate(0, 0)";
+          }
+        });
+      });
+
+      function showLoadingState() {
+        isLoading = true;
+        loadingState.style.display = "grid";
+        productsContainer.style.display = "none";
+        emptyState.classList.add("hidden");
+
+        // Create enhanced skeleton cards
+        const skeletons = Array.from(
+          { length: 6 },
+          (_, i) => `
+                <div class="glass-card rounded-3xl overflow-hidden shadow-float animate-pulse border-2 border-primary-100 dark:border-primary-900/30" style="animation-delay: ${
+                  i * 0.1
+                }s">
+                    <div class="skeleton h-80 rounded-t-3xl relative">
+                        <div class="absolute top-4 left-4 space-y-2">
+                            <div class="skeleton h-6 w-16 rounded-full"></div>
+                            <div class="skeleton h-6 w-12 rounded-full"></div>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <div class="skeleton h-10 w-10 rounded-full"></div>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="skeleton h-6 rounded-xl w-3/4"></div>
+                        <div class="skeleton h-4 rounded-lg w-full"></div>
+                        <div class="skeleton h-4 rounded-lg w-2/3"></div>
+                        <div class="flex items-center space-x-2 py-2">
+                            <div class="skeleton h-5 w-20 rounded-lg"></div>
+                            <div class="skeleton h-4 w-8 rounded"></div>
+                            <div class="skeleton h-4 w-12 rounded"></div>
+                        </div>
+                        <div class="flex justify-between items-center pt-4">
+                            <div class="space-y-2">
+                                <div class="skeleton h-8 rounded-xl w-20"></div>
+                                <div class="skeleton h-3 rounded w-24"></div>
+                            </div>
+                            <div class="skeleton h-12 rounded-2xl w-28"></div>
+                        </div>
+                    </div>
+                </div>
+            `
+        ).join("");
+
+        loadingState.innerHTML = skeletons;
+      }
+
+      function hideLoadingState() {
+        isLoading = false;
+        loadingState.style.display = "none";
+        productsContainer.style.display = "grid";
+      }
+
+      function renderProducts() {
+        if (filteredProducts.length === 0) {
+          productsContainer.style.display = "none";
+          emptyState.classList.remove("hidden");
+          return;
+        }
+
+        productsContainer.style.display = "grid";
+        emptyState.classList.add("hidden");
+
+        const productHTML = filteredProducts
+          .map((product, index) => {
+            const discountPercentage = product.originalPrice
+              ? Math.round((1 - product.price / product.originalPrice) * 100)
+              : 0;
+
+            const ratingStars = generateStarRating(product.rating);
+            const badges = product.badges
+              .map(
+                (badge) =>
+                  `<span class="gradient-animated text-xs font-bold px-3 py-1.5 rounded-full text-white shadow-glow">${badge}</span>`
+              )
+              .join("");
+
+            return `
+                    <div class="product-card glass-card rounded-3xl overflow-hidden shadow-float hover:shadow-float-lg group border-2 border-primary-100 dark:border-primary-900/30 hover:border-primary-300 dark:hover:border-primary-700 transition-all duration-500" 
+                         style="animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${
+                           index * 0.1
+                         }s both">
+                        <div class="card-inner">
+                            <div class="relative overflow-hidden bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-800 dark:to-neutral-900">
+                                <img src="${product.image}" alt="${
+              product.name
+            }" 
+                                     class="w-full h-80 object-cover group-hover:scale-125 transition-transform duration-700 ease-out">
+                                
+                                <!-- Enhanced Badges -->
+                                <div class="absolute top-6 left-6 flex flex-wrap gap-2 z-10">
+                                    ${badges}
+                                    ${
+                                      discountPercentage > 0
+                                        ? `<span class="bg-gradient-to-r from-red-500 to-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-glow animate-pulse">-${discountPercentage}%</span>`
+                                        : ""
+                                    }
+                                    ${
+                                      !product.inStock
+                                        ? '<span class="bg-neutral-500 text-white text-xs font-medium px-3 py-1.5 rounded-full">Rupture</span>'
+                                        : ""
+                                    }
+                                </div>
+
+                                <!-- Enhanced Wishlist Button -->
+                                <button class="wishlist-btn absolute top-6 right-6 w-12 h-12 bg-white/90 dark:bg-neutral-800/90 backdrop-blur-sm rounded-2xl flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:text-red-500 hover:bg-white dark:hover:bg-neutral-800 shadow-float hover:shadow-glow hover:scale-110 transition-all duration-300 z-10">
+                                    <i class="far fa-heart text-lg"></i>
+                                </button>
+
+                                <!-- Enhanced Quick Actions Overlay -->
+                                <div class="absolute inset-x-6 bottom-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 z-10">
+                                    <button onclick="showQuickPreview(${
+                                      product.id
+                                    })" class="morph-button ripple w-full bg-white/95 dark:bg-neutral-800/95 backdrop-blur-sm text-neutral-900 dark:text-white font-semibold py-4 rounded-2xl hover:bg-white dark:hover:bg-neutral-800 transition-all shadow-float hover:shadow-glow hover:scale-105">
+                                        <i class="fas fa-eye mr-3"></i>
+                                        Aperçu rapide
+                                    </button>
+                                </div>
+
+                                <!-- Floating elements for depth -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+
+                            <div class="p-8">
+                                <!-- Enhanced Product Info -->
+                                <div class="mb-4">
+                                    <h3 class="font-bold text-xl text-neutral-900 dark:text-white mb-2 line-clamp-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">${
+                                      product.name
+                                    }</h3>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2 leading-relaxed">${
+                                      product.description
+                                    }</p>
+                                </div>
+
+                                <!-- Enhanced Features -->
+                                <div class="mb-4">
+                                    <div class="flex flex-wrap gap-2">
+                                        ${product.features
+                                          .slice(0, 2)
+                                          .map(
+                                            (feature) =>
+                                              `<span class="text-xs bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 px-2 py-1 rounded-lg font-medium">${feature}</span>`
+                                          )
+                                          .join("")}
+                                        ${
+                                          product.features.length > 2
+                                            ? `<span class="text-xs text-neutral-500 dark:text-neutral-400">+${
+                                                product.features.length - 2
+                                              } autres</span>`
+                                            : ""
+                                        }
+                                    </div>
+                                </div>
+
+                                <!-- Enhanced Rating -->
+                                <div class="flex items-center gap-3 mb-6">
+                                    <div class="rating-stars text-2xl cursor-pointer">${ratingStars}</div>
+                                    <span class="text-lg font-bold text-neutral-700 dark:text-neutral-300">${
+                                      product.rating
+                                    }</span>
+                                    <span class="text-sm text-neutral-500 dark:text-neutral-400">(${product.reviews.toLocaleString()} avis)</span>
+                                </div>
+
+                                <!-- Enhanced Price and Action -->
+                                <div class="flex items-end justify-between">
+                                    <div class="flex flex-col">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <span class="text-3xl font-black text-neutral-900 dark:text-white">${
+                                              product.price
+                                            }€</span>
+                                            ${
+                                              product.originalPrice
+                                                ? `<span class="text-lg text-neutral-500 dark:text-neutral-400 line-through">${product.originalPrice}€</span>`
+                                                : ""
+                                            }
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            ${
+                                              product.fastDelivery
+                                                ? '<span class="text-xs text-green-600 dark:text-green-400 font-semibold flex items-center"><i class="fas fa-shipping-fast mr-1"></i>Livraison rapide</span>'
+                                                : ""
+                                            }
+                                            ${
+                                              product.inStock
+                                                ? '<span class="text-xs text-blue-600 dark:text-blue-400 font-semibold flex items-center"><i class="fas fa-check-circle mr-1"></i>En stock</span>'
+                                                : ""
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <button class="morph-button ripple flex items-center gap-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 disabled:from-neutral-300 disabled:to-neutral-400 dark:disabled:from-neutral-700 dark:disabled:to-neutral-600 text-white font-bold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 disabled:cursor-not-allowed shadow-glow hover:shadow-glow-lg disabled:shadow-none" 
+                                            ${
+                                              !product.inStock ? "disabled" : ""
+                                            }>
+                                        <i class="fas fa-shopping-bag text-lg"></i>
+                                        <span class="hidden sm:inline">${
+                                          product.inStock ? "Ajouter" : "Épuisé"
+                                        }</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+          })
+          .join("");
+
+        productsContainer.innerHTML = productHTML;
+
+        // Enhanced wishlist functionality
+        document.querySelectorAll(".wishlist-btn").forEach((btn) => {
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            this.classList.toggle("active");
+            const icon = this.querySelector("i");
+            if (this.classList.contains("active")) {
+              icon.className = "fas fa-heart text-lg animate-heart-beat";
+              showToast("Ajouté aux favoris ❤️", "success");
+            } else {
+              icon.className = "far fa-heart text-lg";
+              showToast("Retiré des favoris", "info");
+            }
+          });
+        });
+
+        // Add to cart functionality
+        document
+          .querySelectorAll(
+            'button[class*="morph-button"]:not(.wishlist-btn):not([onclick])'
+          )
+          .forEach((btn) => {
+            if (btn.textContent.includes("Ajouter")) {
+              btn.addEventListener("click", function () {
+                if (!this.disabled) {
+                  this.innerHTML = '<i class="fas fa-check mr-2"></i>Ajouté!';
+                  this.classList.add("bg-green-500", "hover:bg-green-600");
+                  this.classList.remove(
+                    "bg-gradient-to-r",
+                    "from-primary-500",
+                    "to-primary-600"
+                  );
+                  showToast("Produit ajouté au panier! 🛒", "success");
+
+                  setTimeout(() => {
+                    this.innerHTML =
+                      '<i class="fas fa-shopping-bag text-lg"></i><span class="hidden sm:inline">Ajouter</span>';
+                    this.classList.remove("bg-green-500", "hover:bg-green-600");
+                    this.classList.add(
+                      "bg-gradient-to-r",
+                      "from-primary-500",
+                      "to-primary-600"
+                    );
+                  }, 2000);
+                }
+              });
+            }
+          });
+      }
+
+      function generateStarRating(rating) {
+        const fullStars = Math.floor(rating);
+        const hasHalfStar = rating % 1 !== 0;
+        const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+        let stars = "★".repeat(fullStars);
+        if (hasHalfStar) stars += "☆";
+        stars += "☆".repeat(emptyStars);
+
+        return stars;
+      }
+
+      function filterProducts() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedCategories = Array.from(
+          document.querySelectorAll('input[data-filter="category"]:checked')
+        ).map((cb) => cb.value);
+        const selectedBrands = Array.from(
+          document.querySelectorAll('input[data-filter="brand"]:checked')
+        ).map((cb) => cb.value);
+        const maxPrice = parseInt(priceRange.value);
+        const minRating =
+          document.querySelector('input[name="rating"]:checked')?.value || 0;
+
+        filteredProducts = products.filter((product) => {
+          const matchesSearch =
+            product.name.toLowerCase().includes(searchTerm) ||
+            product.description.toLowerCase().includes(searchTerm) ||
+            product.features.some((feature) =>
+              feature.toLowerCase().includes(searchTerm)
+            );
+          const matchesCategory =
+            selectedCategories.length === 0 ||
+            selectedCategories.includes(product.category);
+          const matchesBrand =
+            selectedBrands.length === 0 ||
+            selectedBrands.includes(product.brand);
+          const matchesPrice = product.price <= maxPrice;
+          const matchesRating = product.rating >= parseFloat(minRating);
+
+          return (
+            matchesSearch &&
+            matchesCategory &&
+            matchesBrand &&
+            matchesPrice &&
+            matchesRating
+          );
+        });
+
+        sortAndRenderProducts();
+        updateProductCount();
+      }
+
+      function sortAndRenderProducts() {
+        const sortBy = sortSelect.value;
+
+        filteredProducts.sort((a, b) => {
+          switch (sortBy) {
+            case "featured":
+              return b.rating * b.reviews - a.rating * a.reviews;
+            case "price-asc":
+              return a.price - b.price;
+            case "price-desc":
+              return b.price - a.price;
+            case "rating":
+              return b.rating - a.rating;
+            case "newest":
+              return b.id - a.id;
+            default:
+              return 0;
+          }
+        });
+
+        renderProducts();
+      }
+
+      function updatePriceDisplay() {
+        maxPriceDisplay.textContent = priceRange.value + "€";
+      }
+
+      function updateProductCount() {
+        const count = filteredProducts.length;
+        productCount.innerHTML = `<i class="fas fa-box mr-3 text-xl"></i>${count} produit${
+          count !== 1 ? "s" : ""
+        } ${count > 0 ? "magique" + (count !== 1 ? "s" : "") : ""}`;
+      }
+
+      function clearAllFilters() {
+        searchInput.value = "";
+        priceRange.value = 1500;
+        updatePriceDisplay();
+
+        // Clear all filter chips
+        document.querySelectorAll("input[data-filter]").forEach((checkbox) => {
+          checkbox.checked = false;
+          const chip = checkbox.closest(".filter-chip");
+          if (chip) chip.classList.remove("active");
+        });
+
+        document.querySelectorAll('input[name="rating"]').forEach((radio) => {
+          radio.checked = false;
+        });
+
+        sortSelect.value = "featured";
+        filterProducts();
+        showToast("Tous les filtres ont été effacés", "info");
+      }
+
+      function switchView(view) {
+        currentView = view;
+
+        if (view === "grid") {
+          gridView.classList.add(
+            "bg-white",
+            "dark:bg-neutral-700",
+            "shadow-sm"
+          );
+          gridView.classList.remove(
+            "text-neutral-500",
+            "dark:text-neutral-400"
+          );
+          listView.classList.remove(
+            "bg-white",
+            "dark:bg-neutral-700",
+            "shadow-sm"
+          );
+          listView.classList.add("text-neutral-500", "dark:text-neutral-400");
+          productsContainer.className =
+            "grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8";
+        } else {
+          listView.classList.add(
+            "bg-white",
+            "dark:bg-neutral-700",
+            "shadow-sm"
+          );
+          listView.classList.remove(
+            "text-neutral-500",
+            "dark:text-neutral-400"
+          );
+          gridView.classList.remove(
+            "bg-white",
+            "dark:bg-neutral-700",
+            "shadow-sm"
+          );
+          gridView.classList.add("text-neutral-500", "dark:text-neutral-400");
+          productsContainer.className = "space-y-8";
+        }
+
+        renderProducts();
+        showToast(
+          `Vue ${view === "grid" ? "grille" : "liste"} activée`,
+          "info"
+        );
+      }
+
+      function showQuickPreview(productId) {
+        const product = products.find((p) => p.id === productId);
+        if (!product) return;
+
+        const modal = document.getElementById("quickPreviewModal");
+        const content = document.getElementById("quickPreviewContent");
+
+        const ratingStars = generateStarRating(product.rating);
+        const badges = product.badges
+          .map(
+            (badge) =>
+              `<span class="gradient-animated text-xs font-bold px-3 py-1.5 rounded-full text-white shadow-glow">${badge}</span>`
+          )
+          .join("");
+
+        content.innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
+                    <div class="relative">
+                        <img src="${product.image}" alt="${
+          product.name
+        }" class="w-full h-full object-cover rounded-2xl shadow-float">
+                        <div class="absolute top-6 left-6 flex flex-wrap gap-2">
+                            ${badges}
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-between py-4">
+                        <div>
+                            <h2 class="text-3xl font-bold text-neutral-900 dark:text-white mb-4">${
+                              product.name
+                            }</h2>
+                            <p class="text-lg text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">${
+                              product.description
+                            }</p>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold text-neutral-900 dark:text-white mb-3">Caractéristiques principales:</h4>
+                                <div class="grid grid-cols-2 gap-3">
+                                    ${product.features
+                                      .map(
+                                        (feature) =>
+                                          `<div class="flex items-center p-3 bg-primary-50 dark:bg-primary-900/30 rounded-xl">
+                                            <i class="fas fa-check text-primary-500 mr-3"></i>
+                                            <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">${feature}</span>
+                                        </div>`
+                                      )
+                                      .join("")}
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="rating-stars text-2xl">${ratingStars}</div>
+                                <span class="text-xl font-bold text-neutral-700 dark:text-neutral-300">${
+                                  product.rating
+                                }</span>
+                                <span class="text-neutral-500 dark:text-neutral-400">(${product.reviews.toLocaleString()} avis)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <span class="text-4xl font-black text-neutral-900 dark:text-white">${
+                                  product.price
+                                }€</span>
+                                ${
+                                  product.originalPrice
+                                    ? `<span class="text-2xl text-neutral-500 dark:text-neutral-400 line-through">${product.originalPrice}€</span>`
+                                    : ""
+                                }
+                            </div>
+                            
+                            <div class="flex gap-4">
+                                <button class="morph-button ripple flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-bold py-4 rounded-2xl transition-all duration-300 hover:scale-105 shadow-glow hover:shadow-glow-lg" ${
+                                  !product.inStock ? "disabled" : ""
+                                }>
+                                    <i class="fas fa-shopping-bag text-lg"></i>
+                                    ${
+                                      product.inStock
+                                        ? "Ajouter au panier"
+                                        : "Épuisé"
+                                    }
+                                </button>
+                                <button class="morph-button p-4 border-2 border-primary-500 text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-2xl transition-all hover:scale-105">
+                                    <i class="fas fa-heart text-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+        modal.classList.remove("hidden");
+        modal.classList.add("animate-zoom-in");
+      }
+
+      function closeQuickPreview() {
+        const modal = document.getElementById("quickPreviewModal");
+        modal.classList.add("hidden");
+        modal.classList.remove("animate-zoom-in");
+      }
+
+      function showToast(message, type = "info") {
+        const toast = document.createElement("div");
+        const icons = {
+          success: "fas fa-check-circle text-green-500",
+          error: "fas fa-exclamation-circle text-red-500",
+          warning: "fas fa-exclamation-triangle text-yellow-500",
+          info: "fas fa-info-circle text-blue-500",
+        };
+
+        const colors = {
+          success:
+            "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800",
+          error:
+            "bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800",
+          warning:
+            "bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800",
+          info: "bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800",
+        };
+
+        toast.className = `toast glass-card rounded-2xl p-4 shadow-float border-2 ${colors[type]} flex items-center space-x-3 min-w-80`;
+        toast.innerHTML = `
+                <i class="${icons[type]} text-lg"></i>
+                <span class="font-medium text-neutral-800 dark:text-neutral-200">${message}</span>
+                <button onclick="this.parentElement.remove()" class="ml-auto text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+
+        toastContainer.appendChild(toast);
+
+        // Show toast
+        setTimeout(() => toast.classList.add("show"), 100);
+
+        // Auto remove after 4 seconds
+        setTimeout(() => {
+          toast.classList.remove("show");
+          setTimeout(() => toast.remove(), 300);
+        }, 4000);
+      }
+
+      // Reset filters button in empty state
+      document.addEventListener("click", function (e) {
+        if (e.target.id === "resetFiltersBtn") {
+          clearAllFilters();
+        }
+      });
+
+      // Enhanced keyboard navigation
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeQuickPreview();
+        }
+      });
+
+      // Utility functions
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      // ================================
+      // 🤖 AI ASSISTANT FUNCTIONALITY
+      // ================================
+
+      const aiToggle = document.getElementById("aiToggle");
+      const aiChat = document.getElementById("aiChat");
+      const aiClose = document.getElementById("aiClose");
+      const aiInput = document.getElementById("aiInput");
+      const aiSend = document.getElementById("aiSend");
+      const aiMessages = document.getElementById("aiMessages");
+
+      let isAiOpen = false;
+
+      // AI Chat functionality
+      aiToggle.addEventListener("click", () => {
+        isAiOpen = !isAiOpen;
+        if (isAiOpen) {
+          aiChat.classList.remove("hidden");
+          aiChat.classList.add("animate-scale-in");
+          showToast("Assistant IA activé! 🤖", "info");
+          simulateTyping();
+        } else {
+          aiChat.classList.add("hidden");
+        }
+      });
+
+      aiClose.addEventListener("click", () => {
+        isAiOpen = false;
+        aiChat.classList.add("hidden");
+      });
+
+      aiSend.addEventListener("click", sendAiMessage);
+      aiInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") sendAiMessage();
+      });
+
+      // AI Suggestion buttons
+      document.querySelectorAll(".ai-suggestion").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const suggestion = this.textContent;
+          aiInput.value = suggestion;
+          sendAiMessage();
+        });
+      });
+
+      function sendAiMessage() {
+        const message = aiInput.value.trim();
+        if (!message) return;
+
+        // Add user message
+        addAiMessage(message, "user");
+        aiInput.value = "";
+
+        // Simulate AI thinking
+        setTimeout(() => {
+          const response = generateAiResponse(message);
+          addAiMessage(response, "ai");
+        }, 1000 + Math.random() * 2000);
+      }
+
+      function addAiMessage(message, sender) {
+        const messageEl = document.createElement("div");
+        messageEl.className = `${sender}-message flex items-start space-x-3 animate-fade-in`;
+
+        if (sender === "user") {
+          messageEl.innerHTML = `
+                    <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-sm">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="bg-primary-100 dark:bg-primary-900/30 rounded-2xl p-4 max-w-xs">
+                        <p class="text-sm">${message}</p>
+                    </div>
+                `;
+        } else {
+          messageEl.innerHTML = `
+                    <div class="w-8 h-8 bg-gradient-to-r from-primary-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="bg-neutral-100 dark:bg-neutral-800 rounded-2xl p-4 max-w-xs">
+                        <p class="text-sm">${message}</p>
+                    </div>
+                `;
+        }
+
+        aiMessages.appendChild(messageEl);
+        aiMessages.scrollTop = aiMessages.scrollHeight;
+      }
+
+      function generateAiResponse(message) {
+        const responses = {
+          recommandations:
+            "🎯 Basé sur vos préférences, je recommande l'iPhone 15 Pro Max et le MacBook Pro M3 Max. Ces produits forment un écosystème parfait!",
+          comparaisons:
+            "📊 Je peux comparer n'importe quels produits pour vous. Par exemple, l'iPhone 15 Pro Max offre de meilleures performances photo que le Galaxy S24 Ultra.",
+          tendances:
+            "📈 Les tendances actuelles montrent une forte demande pour les produits Apple et la technologie gaming. Les casques gaming sont très populaires!",
+          prix: "💰 Notre gamme de prix va de 89€ à 2499€. Je peux vous aider à trouver le meilleur rapport qualité-prix selon votre budget.",
+          livraison:
+            "🚚 Nous proposons la livraison rapide sur la plupart des produits. Les délais varient de 24h à 3 jours selon votre localisation.",
+          stock:
+            "📦 Tous nos produits sont en stock sauf la Lampe Design Scandinave. Je peux vous notifier quand elle sera disponible!",
+          aide: "🆘 Je suis là pour vous aider! Je peux recommander des produits, comparer les prix, vérifier le stock, et répondre à toutes vos questions.",
+          default:
+            "🤔 C'est une excellente question! Laissez-moi analyser nos produits pour vous donner la meilleure réponse possible...",
+        };
+
+        const lowerMessage = message.toLowerCase();
+
+        for (const [key, response] of Object.entries(responses)) {
+          if (key !== "default" && lowerMessage.includes(key)) {
+            return response;
+          }
+        }
+
+        return responses.default;
+      }
+
+      function simulateTyping() {
+        const dots = document.createElement("div");
+        dots.className = "ai-message flex items-start space-x-3";
+        dots.innerHTML = `
+                <div class="w-8 h-8 bg-gradient-to-r from-primary-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="bg-neutral-100 dark:bg-neutral-800 rounded-2xl p-4">
+                    <div class="flex space-x-1">
+                        <div class="w-2 h-2 bg-neutral-400 rounded-full animate-pulse"></div>
+                        <div class="w-2 h-2 bg-neutral-400 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
+                        <div class="w-2 h-2 bg-neutral-400 rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
+                    </div>
+                </div>
+            `;
+        aiMessages.appendChild(dots);
+
+        setTimeout(() => {
+          dots.remove();
+          addAiMessage(
+            "✨ Je suis prêt à vous aider! Que souhaitez-vous découvrir aujourd'hui?",
+            "ai"
+          );
+        }, 2000);
+      }
+
+      // ================================
+      // 🎤 VOICE SEARCH FUNCTIONALITY
+      // ================================
+
+      const voiceModal = document.getElementById("voiceModal");
+      const voiceStop = document.getElementById("voiceStop");
+      let isVoiceActive = false;
+
+      // Add voice search button to search input
+      const voiceButton = document.createElement("button");
+      voiceButton.className =
+        "absolute inset-y-0 right-0 pr-4 flex items-center text-neutral-400 hover:text-primary-500 transition-colors";
+      voiceButton.innerHTML = '<i class="fas fa-microphone"></i>';
+      voiceButton.addEventListener("click", startVoiceSearch);
+      searchInput.parentElement.appendChild(voiceButton);
+
+      function startVoiceSearch() {
+        isVoiceActive = true;
+        voiceModal.classList.remove("hidden");
+        showToast("Recherche vocale activée! 🎤", "info");
+
+        // Simulate voice recognition
+        setTimeout(() => {
+          const suggestions = [
+            "iPhone 15",
+            "Casque gaming",
+            "Nike Air Jordan",
+            "MacBook Pro",
+          ];
+          const randomSuggestion =
+            suggestions[Math.floor(Math.random() * suggestions.length)];
+          searchInput.value = randomSuggestion;
+          stopVoiceSearch();
+          filterProducts();
+          showToast(`Recherche vocale: "${randomSuggestion}"`, "success");
+        }, 3000);
+      }
+
+      function stopVoiceSearch() {
+        isVoiceActive = false;
+        voiceModal.classList.add("hidden");
+      }
+
+      voiceStop.addEventListener("click", stopVoiceSearch);
+
+      // ================================
+      // 🥽 AR VIEWER FUNCTIONALITY
+      // ================================
+
+      const arViewer = document.getElementById("arViewer");
+      const arClose = document.getElementById("arClose");
+
+      function showArViewer(productId) {
+        const product = products.find((p) => p.id === productId);
+        if (!product) return;
+
+        arViewer.classList.remove("hidden");
+        showToast("Mode AR activé! 🥽", "info");
+
+        // Simulate AR content
+        const arContent = document.getElementById("arContent");
+        arContent.innerHTML = `
+                <div class="text-center text-white">
+                    <div class="relative w-64 h-64 mx-auto mb-8">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover rounded-3xl animate-float">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-purple-600/20 rounded-3xl"></div>
+                        <div class="absolute top-4 left-4 right-4 text-center">
+                            <h4 class="text-lg font-bold mb-2">${product.name}</h4>
+                            <p class="text-sm opacity-80">Vue en réalité augmentée</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 max-w-md mx-auto">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                            <i class="fas fa-expand-arrows-alt text-2xl mb-2"></i>
+                            <p class="text-sm">Redimensionner</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                            <i class="fas fa-rotate-3d text-2xl mb-2"></i>
+                            <p class="text-sm">Rotation 360°</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                            <i class="fas fa-eye text-2xl mb-2"></i>
+                            <p class="text-sm">Détails HD</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+      }
+
+      arClose.addEventListener("click", () => {
+        arViewer.classList.add("hidden");
+      });
+
+      // ================================
+      // 🧠 NEURAL NETWORK BACKGROUND
+      // ================================
+
+      const canvas = document.getElementById("neuralCanvas");
+      const ctx = canvas.getContext("2d");
+      let animationFrame;
+
+      // Neural network nodes
+      const nodes = [];
+      const connections = [];
+
+      function initNeuralNetwork() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Create nodes
+        for (let i = 0; i < 50; i++) {
+          nodes.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 2,
+            vy: (Math.random() - 0.5) * 2,
+            radius: Math.random() * 3 + 1,
+          });
+        }
+
+        // Create connections
+        for (let i = 0; i < nodes.length; i++) {
+          for (let j = i + 1; j < nodes.length; j++) {
+            const distance = Math.hypot(
+              nodes[i].x - nodes[j].x,
+              nodes[i].y - nodes[j].y
+            );
+            if (distance < 150) {
+              connections.push({ a: i, b: j, opacity: 1 - distance / 150 });
+            }
+          }
+        }
+      }
+
+      function animateNeuralNetwork() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Update and draw nodes
+        nodes.forEach((node) => {
+          node.x += node.vx;
+          node.y += node.vy;
+
+          if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+          if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(93, 92, 222, 0.6)";
+          ctx.fill();
+        });
+
+        // Draw connections
+        connections.forEach((conn) => {
+          const nodeA = nodes[conn.a];
+          const nodeB = nodes[conn.b];
+          const distance = Math.hypot(nodeA.x - nodeB.x, nodeA.y - nodeB.y);
+
+          if (distance < 150) {
+            ctx.beginPath();
+            ctx.moveTo(nodeA.x, nodeA.y);
+            ctx.lineTo(nodeB.x, nodeB.y);
+            ctx.strokeStyle = `rgba(93, 92, 222, ${
+              0.3 * (1 - distance / 150)
+            })`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        });
+
+        animationFrame = requestAnimationFrame(animateNeuralNetwork);
+      }
+
+      // ================================
+      // 🎯 SMART RECOMMENDATIONS
+      // ================================
+
+      const smartRecommendations = document.getElementById(
+        "smartRecommendations"
+      );
+      const recommendationText = document.getElementById("recommendationText");
+      const viewRecommendations = document.getElementById(
+        "viewRecommendations"
+      );
+      const dismissRecommendations = document.getElementById(
+        "dismissRecommendations"
+      );
+
+      let userBehavior = {
+        viewedCategories: [],
+        viewedProducts: [],
+        timeSpent: 0,
+      };
+
+      function showSmartRecommendations() {
+        const recommendations = [
+          "Basé sur votre navigation, l'iPhone 15 Pro Max pourrait vous intéresser",
+          "Les utilisateurs comme vous adorent aussi le MacBook Pro M3 Max",
+          "Complétez votre setup avec le Casque Gaming Pro X",
+          "Tendance: 85% des clients achètent aussi des accessoires",
+          "Offre spéciale: -15% sur votre deuxième article",
+          "Produits similaires consultés par d'autres utilisateurs",
+        ];
+
+        const randomRec =
+          recommendations[Math.floor(Math.random() * recommendations.length)];
+        recommendationText.textContent = randomRec;
+        smartRecommendations.style.transform = "translateY(0)";
+
+        setTimeout(() => {
+          smartRecommendations.style.transform = "translateY(100%)";
+        }, 8000);
+      }
+
+      viewRecommendations.addEventListener("click", () => {
+        showToast(
+          "Fonctionnalité de recommandations IA bientôt disponible! 🤖",
+          "info"
+        );
+        smartRecommendations.style.transform = "translateY(100%)";
+      });
+
+      dismissRecommendations.addEventListener("click", () => {
+        smartRecommendations.style.transform = "translateY(100%)";
+      });
+
+      // ================================
+      // 🎮 ENHANCED INTERACTIONS
+      // ================================
+
+      // Haptic feedback simulation
+      function simulateHapticFeedback(intensity = "light") {
+        if (navigator.vibrate) {
+          const patterns = {
+            light: [50],
+            medium: [100],
+            strong: [200],
+          };
+          navigator.vibrate(patterns[intensity] || patterns.light);
+        }
+      }
+
+      // Add haptic feedback to buttons
+      document.addEventListener("click", function (e) {
+        if (e.target.closest("button")) {
+          simulateHapticFeedback("light");
+        }
+      });
+
+      // Gesture recognition simulation
+      let touchStartX, touchStartY;
+
+      document.addEventListener("touchstart", function (e) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      });
+
+      document.addEventListener("touchend", function (e) {
+        if (!touchStartX || !touchStartY) return;
+
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+
+        // Swipe gestures
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 100) {
+          if (deltaX > 0) {
+            // Swipe right - show filters
+            showToast("👉 Swipe détecté: Filtres", "info");
+          } else {
+            // Swipe left - show cart
+            showToast("👈 Swipe détecté: Panier", "info");
+          }
+        }
+
+        touchStartX = touchStartY = null;
+      });
+
+      // ================================
+      // 🌟 ADVANCED FEATURES
+      // ================================
+
+      // Product recommendation engine
+      function getPersonalizedRecommendations(productId) {
+        const currentProduct = products.find((p) => p.id === productId);
+        if (!currentProduct) return [];
+
+        return products
+          .filter((p) => p.id !== productId)
+          .filter(
+            (p) =>
+              p.category === currentProduct.category ||
+              p.brand === currentProduct.brand
+          )
+          .sort((a, b) => b.rating - a.rating)
+          .slice(0, 3);
+      }
+
+      // Enhanced search with autocomplete
+      const searchSuggestions = [
+        "iPhone 15 Pro Max",
+        "Galaxy S24 Ultra",
+        "MacBook Pro M3",
+        "Nike Air Jordan",
+        "Casque Gaming",
+        "T-shirt Premium",
+        "Lampe Design",
+        "Sportswear Elite",
+        "Apple",
+        "Samsung",
+        "Nike",
+        "Électronique",
+        "Sport",
+        "Vêtements",
+        "Maison",
+      ];
+
+      function setupSearchAutocomplete() {
+        const suggestionsContainer = document.createElement("div");
+        suggestionsContainer.className =
+          "absolute top-full left-0 right-0 bg-white dark:bg-neutral-800 rounded-2xl shadow-float mt-2 z-50 hidden";
+        searchInput.parentElement.appendChild(suggestionsContainer);
+
+        searchInput.addEventListener("input", function () {
+          const query = this.value.toLowerCase();
+          if (query.length < 2) {
+            suggestionsContainer.classList.add("hidden");
+            return;
+          }
+
+          const matches = searchSuggestions
+            .filter((s) => s.toLowerCase().includes(query))
+            .slice(0, 5);
+
+          if (matches.length > 0) {
+            suggestionsContainer.innerHTML = matches
+              .map(
+                (match) =>
+                  `<div class="p-3 hover:bg-neutral-100 dark:hover:bg-neutral-700 cursor-pointer transition-colors border-b border-neutral-200 dark:border-neutral-700 last:border-b-0" onclick="selectSuggestion('${match}')">
+                            <i class="fas fa-search mr-3 text-neutral-400"></i>
+                            ${match}
+                        </div>`
+              )
+              .join("");
+            suggestionsContainer.classList.remove("hidden");
+          } else {
+            suggestionsContainer.classList.add("hidden");
+          }
+        });
+      }
+
+      function selectSuggestion(suggestion) {
+        searchInput.value = suggestion;
+        document.querySelector(".absolute.top-full").classList.add("hidden");
+        filterProducts();
+        showToast(`Recherche: "${suggestion}"`, "info");
+      }
+
+      // ================================
+      // 🚀 INITIALIZATION
+      // ================================
+
+      // Initialize all advanced features
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize neural network background
+        initNeuralNetwork();
+        animateNeuralNetwork();
+
+        // Setup search autocomplete
+        setupSearchAutocomplete();
+
+        // Show smart recommendations after delay
+        setTimeout(showSmartRecommendations, 10000);
+
+        // Add loading animation to price range
+        priceRange.addEventListener("input", function () {
+          this.style.background = `linear-gradient(90deg, #5D5CDE 0%, #5D5CDE ${
+            (this.value / this.max) * 100
+          }%, #e5e7eb ${(this.value / this.max) * 100}%, #e5e7eb 100%)`;
+        });
+
+        // Track user behavior for AI recommendations
+        let startTime = Date.now();
+        setInterval(() => {
+          userBehavior.timeSpent = Math.floor((Date.now() - startTime) / 1000);
+        }, 1000);
+
+        // Add AR buttons to product cards
+        setTimeout(() => {
+          document.querySelectorAll(".product-card").forEach((card, index) => {
+            const arButton = document.createElement("button");
+            arButton.className =
+              "absolute top-6 right-20 w-12 h-12 bg-white/90 dark:bg-neutral-800/90 backdrop-blur-sm rounded-2xl flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:text-purple-500 hover:bg-white dark:hover:bg-neutral-800 shadow-float hover:shadow-glow hover:scale-110 transition-all duration-300 z-10";
+            arButton.innerHTML = '<i class="fas fa-cube text-lg"></i>';
+            arButton.onclick = () => showArViewer(index + 1);
+
+            const imageContainer = card.querySelector(
+              ".relative.overflow-hidden"
+            );
+            if (imageContainer) {
+              imageContainer.appendChild(arButton);
+            }
+          });
+        }, 2500);
+
+        showToast(
+          "🌟 Boutique du futur chargée! Découvrez toutes les fonctionnalités IA.",
+          "success"
+        );
+      });
+
+      // Cleanup on page unload
+      window.addEventListener("beforeunload", function () {
+        if (animationFrame) {
+          cancelAnimationFrame(animationFrame);
+        }
+      });
+
+      // Resize handler for neural network
+      window.addEventListener("resize", function () {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+
+      // Global function for suggestion selection
+      window.selectSuggestion = selectSuggestion;
+    </script>
+  </body>
+</html>

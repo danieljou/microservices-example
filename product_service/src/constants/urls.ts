@@ -1,0 +1,1 @@
+export const USER_SERVICE_URL = "http://user-service:8000/";

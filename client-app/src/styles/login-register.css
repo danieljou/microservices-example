@@ -1,0 +1,220 @@
+/* Glass Effects */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dark .glass-card {
+  background: rgba(17, 24, 39, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.form-container {
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+}
+.form-container:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 30px 60px rgba(93, 92, 222, 0.2);
+}
+.interactive-element {
+  position: relative;
+  overflow: hidden;
+}
+.interactive-element::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+.interactive-element:hover::before {
+  left: 100%;
+}
+.morph-button {
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  overflow: hidden;
+}
+.morph-button::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.1);
+  transition: width 0.4s ease;
+}
+.morph-button:hover::after {
+  width: 100%;
+}
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+.ripple:active::after {
+  width: 300px;
+  height: 300px;
+}
+.toast {
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.toast.show {
+  transform: translateX(0);
+}
+.social-btn {
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  overflow: hidden;
+}
+.social-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+.social-btn.google:hover {
+  box-shadow: 0 10px 25px rgba(219, 68, 55, 0.3);
+}
+.social-btn.facebook:hover {
+  box-shadow: 0 10px 25px rgba(66, 103, 178, 0.3);
+}
+.social-btn.apple:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+.form-input {
+  transition: all 0.3s ease;
+  position: relative;
+}
+.form-input:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(93, 92, 222, 0.15);
+}
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #e5e7eb;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  transition: 0.4s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+input:checked + .toggle-slider {
+  background: #5d5cde;
+}
+input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+.parallax-bg {
+  background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.05;
+}
+.dark .parallax-bg {
+  opacity: 0.02;
+}
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.floating-element {
+  animation: float 6s ease-in-out infinite;
+}
+.floating-element:nth-child(2n) {
+  animation-delay: -2s;
+}
+.floating-element:nth-child(3n) {
+  animation-delay: -4s;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #5d5cde, #764ba2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #4f46e5, #667eea);
+}
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.security-badge {
+  animation: glow-pulse 2s ease-in-out infinite alternate;
+}
+@keyframes glow-pulse {
+  0% { box-shadow: 0 0 15px rgba(16, 185, 129, 0.3); }
+  100% { box-shadow: 0 0 25px rgba(16, 185, 129, 0.6); }
+}
+.password-strength {
+  height: 4px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.password-strength.weak {
+  background: linear-gradient(90deg, #ef4444 0%, #fbbf24 100%);
+  width: 33%;
+}
+.password-strength.medium {
+  background: linear-gradient(90deg, #fbbf24 0%, #10b981 100%);
+  width: 66%;
+}
+.password-strength.strong {
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+  width: 100%;
+} 

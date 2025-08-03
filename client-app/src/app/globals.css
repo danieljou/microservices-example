@@ -1,0 +1,368 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+
+.gradient-text {
+  background: linear-gradient(135deg, #0d9488, #06b6d4, #8b5cf6);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient 8s ease infinite;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg,
+      #f0fdfa 0%,
+      #ffffff 35%,
+      #eff6ff 70%,
+      #f8fafc 100%);
+}
+
+.dark .hero-gradient {
+  background: linear-gradient(135deg,
+      #0f172a 0%,
+      #1e293b 35%,
+      #334155 70%,
+      #475569 100%);
+}
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0d9488, #14b8a6);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0f766e, #0d9488);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(13, 148, 136, 0.3);
+}
+
+.floating-card {
+  animation: float 6s ease-in-out infinite;
+}
+
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.typing-effect {
+  overflow: hidden;
+  border-right: 2px solid #0d9488;
+  white-space: nowrap;
+  animation: typing 4s steps(40, end), blink-caret 1s step-end infinite;
+}
+
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}
+
+.service-icon {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.navbar-scroll {
+  transition: all 0.3s ease;
+}
+
+.navbar-scroll.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.1);
+  color: #0f172a;
+}
+
+.dark .navbar-scroll.scrolled {
+  background: rgba(15, 23, 42, 0.95);
+  color: #f8fafc;
+}
+
+.timeline-item:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #0d9488, #06b6d4);
+}
+
+.blog-card {
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px) rotateX(5deg);
+}
+
+.tech-icon:hover {
+  animation: bounce 1s ease infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%,
+  43% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  70% {
+    transform: translate3d(0, -5px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+.faq-item {
+  transition: all 0.3s ease;
+}
+
+.faq-item.active {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(13, 148, 136, 0.1);
+}
+
+.progress-bar {
+  transition: width 1s ease-out;
+}
+
+.team-card {
+  perspective: 1000px;
+}
+
+.team-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.team-card:hover .team-card-inner {
+  transform: rotateY(180deg);
+}
+
+.team-card-front,
+.team-card-back {
+  backface-visibility: hidden;
+}
+
+.team-card-back {
+  transform: rotateY(180deg);
+}
+
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #0d9488, #06b6d4, #8b5cf6);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient 8s ease infinite;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg,
+      #f0fdfa 0%,
+      #ffffff 35%,
+      #eff6ff 70%,
+      #f8fafc 100%);
+}
+
+.dark .hero-gradient {
+  background: linear-gradient(135deg,
+      #0f172a 0%,
+      #1e293b 35%,
+      #334155 70%,
+      #475569 100%);
+}
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0d9488, #14b8a6);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0f766e, #0d9488);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(13, 148, 136, 0.3);
+}
+
+.floating-card {
+  animation: float 6s ease-in-out infinite;
+}
+
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.typing-effect {
+  overflow: hidden;
+  border-right: 2px solid #0d9488;
+  white-space: nowrap;
+  animation: typing 4s steps(40, end), blink-caret 1s step-end infinite;
+}
+
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}
+
+.service-icon {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.navbar-scroll {
+  transition: all 0.3s ease;
+}
+
+.navbar-scroll.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.1);
+
+}
+.navbar-scroll.scrolled .nav-link {
+  color: #0f172a;
+}
+
+.dark .navbar-scroll.scrolled {
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.timeline-item:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #0d9488, #06b6d4);
+}
+
+.blog-card {
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px) rotateX(5deg);
+}
+
+.tech-icon:hover {
+  animation: bounce 1s ease infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%,
+  43% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  70% {
+    transform: translate3d(0, -5px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+.faq-item {
+  transition: all 0.3s ease;
+}
+
+.faq-item.active {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(13, 148, 136, 0.1);
+}
+
+.progress-bar {
+  transition: width 1s ease-out;
+}
+
+.team-card {
+  perspective: 1000px;
+}
+
+.team-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.team-card:hover .team-card-inner {
+  transform: rotateY(180deg);
+}
+
+.team-card-front,
+.team-card-back {
+  backface-visibility: hidden;
+}
+
