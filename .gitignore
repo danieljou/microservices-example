@@ -68,3 +68,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+./client-app/node_modules
+/.cache
+./client-app/build/
+./client-app/dist/
+./client-app/.next/
+./client-app/out/
+
+.next/
+build/
+dist/
+out/
