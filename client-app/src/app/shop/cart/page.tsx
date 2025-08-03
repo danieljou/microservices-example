@@ -1,19 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import ToastNotifications from "@/components/ecommercehome/ToastNotifications";
-import AIShoppingAssistant from "@/components/ecommercehome/AIShoppingAssistant";
-import AnimatedBackground from "@/components/ecommercehome/AnimatedBackground";
-import FloatingDecoration from "@/components/ecommercehome/FloatingDecoration";
-import CartItems from "@/components/cart/CartItems";
-import {
-  NeuralNetworkBackground,
-  OrderSummary,
-  PaymentSuccessModal,
-  ProgressSteps,
-} from "@/components/cart";
+
 
 import "@/styles/cart.css";
+import { AIShoppingAssistant, AnimatedBackground, FloatingDecoration, ToastNotifications } from "@/components/ecommercehome";
+import { NeuralNetworkBackground } from "@/components/product";
+import { CartItems, OrderSummary, PaymentSuccessModal, ProgressSteps } from "@/components/cart";
 
 export default function CartPage() {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
